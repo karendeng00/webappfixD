@@ -14,7 +14,7 @@ class IssuesController < ApplicationController
     end
 
     def show 
-        @issue = Issue.find(params[:id])
+        redirect_to issues_path
     end
 
     def new 
