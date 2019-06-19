@@ -3,18 +3,34 @@ class IssuesController < ApplicationController
         @issues = Issue.all
     end
 
+    def edit 
+        @issue = Issue.find(params[:id])
+    end    
+
+    def update 
+        @issue = Issue.find(params[:id])
+        @issue.update(issue_params)
+        redirect_to @issue
+    end
+
     def show 
         @issue = Issue.find(params[:id])
     end
 
     def new 
+        @issue = Issue.new
     end
 
     def create 
-        #render plain: params[:issue].inspect
         @issue = Issue.new(issue_params)
         @issue.save
-        redirect_to @issue
+        redirect_to issues_path
+    end
+    
+    def destroy 
+        @issue = Issue.find(params[:id])
+        @issue.destroy
+        redirect_to issues_path
     end
 
     private def issue_params

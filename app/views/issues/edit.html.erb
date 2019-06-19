@@ -1,0 +1,54 @@
+<h1> Edit Issue </h1>
+
+<%= form_for :issue, url: issue_path(@issue), method: :patch do |form| %>
+  <!--Title-->
+  <p> 
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+ 
+ <!--Description-->
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+<!--Issue Image-->  
+  <p>
+    <%= form.label :image %><br>
+    <%= form.text_area :image %>
+  </p>
+
+<!--Location-->
+  <p>
+    <%= form.label :location %><br>
+    <%= form.text_area :location %>
+  </p>
+
+<!--User-->
+  <p>
+    <%= form.label :user %><br>
+    <%= form.text_area :user %>
+  </p>
+
+<!--User Image-->
+  <p>
+    <%= form.label :user_image %><br>
+    <%= form.text_area :user_image %>
+  </p>
+ 
+<!--Date-->
+  <p>
+    <%= form.label :date %><br>
+    <%= form.text_area :date %>
+  </p>
+<!--Time-->
+  <p>
+    <%= form.label :time %><br>
+    <%= form.text_area :time %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
