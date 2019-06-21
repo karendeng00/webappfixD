@@ -40,14 +40,14 @@ class IssuesController < ApplicationController
         redirect_to issues_path
     end
 
-    def create_thru_app
-        @issue = Issue.new(name: params["name"])
+    def createIssueMobile
+        @issue = Issue.new(issue_params)
         if @issue.save
           render json: @issue, status: :created
         else
           render json: @issue.errors, status: :unprocessable_entity
         end
-      end
+    end
 
 
     #Define the parameters of an Issue
