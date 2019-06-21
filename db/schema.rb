@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 2019_06_19_155109) do
     t.text "location"
     t.text "user"
     t.text "user_image"
-    t.text "date"
-    t.text "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

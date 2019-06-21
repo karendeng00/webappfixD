@@ -8,8 +8,6 @@
     <th>Location</th>
     <th>User</th>
     <th>User Image</th>
-    <th>Date</th>
-    <th>Time</th>
     <th>Edit</th>
     <th>Delete</th>
   </tr>
@@ -17,14 +15,12 @@
 <% @issues.each do |issue|%>
   <tr>
     <td> <%= issue.id%> </td>
-    <td> <%= issue.title%> </td>
+    <td> <%= link_to issue.title, issue_path(issue) %> </td>
     <td> <%= issue.description %> </td>
     <td> <%= issue.image %> </td>
     <td> <%= issue.location %> </td>
     <td> <%= issue.user %> </td>
     <td> <%= issue.user_image %> </td>
-    <td> <%= issue.date %> </td>
-    <td> <%= issue.time %> </td>
     <td> <%= link_to "Edit", edit_issue_path(issue) %> </td>
     <td> <%= link_to "Delete", issue_path(issue), method: :delete,
                                                     data: {confirm: "Are you sure you want to delete this Issue?"} %> </td> 

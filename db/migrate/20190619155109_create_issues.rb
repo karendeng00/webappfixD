@@ -7,10 +7,8 @@ class CreateIssues < ActiveRecord::Migration[5.2]
       t.text :location
       t.text :user
       t.text :user_image
-      t.text :date
-      t.text :time
-
-      t.timestamps
+      
+      t.timestamps 
     end
   end
 end
