@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'index' => 'issues#index'
 
+  get 'json' => 'issues#json'
+
   resources :issues
 
 end
