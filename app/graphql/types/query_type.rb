@@ -10,5 +10,15 @@ module Types
     def all_items
       Issue.all
     end
+
+    field :issue_by_id, [IssueType], null: false do
+      argument :id, String, required: true
+      description "Return the Issue by ID"
+    end
+    
+    def issue_by_id(id:)
+      Issue.where(id: id)
+    end
+    
   end
 end

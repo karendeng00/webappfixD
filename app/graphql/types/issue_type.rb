@@ -7,7 +7,5 @@ module Types
     field :location, String, null:false
     field :user, String, null:false
     field :user_image, String, null:false
-    field :date, String, null:false
-    field :time, String, null:false
   end
 end
