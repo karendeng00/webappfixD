@@ -1,8 +1,12 @@
-<h2> Title: <%= @issue.title %> </h2>
+<h1> <%= @issue.title%> </h1> 
+<p> ID: <%= @issue.id %> </p>
+
 <p> Description: <%= @issue.description %></p>
 <p> Image URL: <%= @issue.image %></p>
 <p> Location: <%= @issue.location %></p>
 <p> User: <%= @issue.user %></p>
 <p> User Image: <%= @issue.user_image %> </p>
-<p> Date: <%= @issue.date %></p>
-<p> Time: <%= @issue.time %></p>
+
+<p> <%= link_to "Edit", edit_issue_path(@issue) %> &nbsp; &nbsp;
+<%= link_to "Delete", issue_path(@issue), method: :delete,
+                                                    data: {confirm: "Are you sure you want to delete this Issue?"} %>

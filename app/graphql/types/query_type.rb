@@ -1,8 +1,7 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
 
+    # Return All Items
     field :all_items, [IssueType], null:false do 
       description "Return all Items"
     end
@@ -10,5 +9,28 @@ module Types
     def all_items
       Issue.all
     end
+
+
+    # Return Issues by ID
+    field :issue_by_id, [IssueType], null: false do
+      argument :id, String, required: true
+      description "Return the Issue by ID"
+    end
+    
+    def issue_by_id(id:)
+      Issue.where(id: id)
+    end
+    
+
+    # Return All Issues of a specific User
+    field :issues_by_user, [IssueType], null: false do 
+      argument :user, String, required: true
+      description "Return all Issues of a specific User"
+    end
+
+    def issues_by_user(user:)
+      Issue.where(user: user)
+    end
+
   end
 end

@@ -21,7 +21,7 @@ class IssuesController < ApplicationController
     end
 
     def show 
-        redirect_to issues_path
+        @issue = Issue.find(params[:id])
     end
 
     def new 
@@ -52,7 +52,7 @@ class IssuesController < ApplicationController
 
     #Define the parameters of an Issue
     private def issue_params
-        params.require(:issue).permit(:title, :description, :image, :location, :user, :user_image, :date, :time)
+        params.require(:issue).permit(:title, :description, :image, :location, :user, :user_image)
     end 
 
 
