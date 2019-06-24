@@ -1,0 +1,31 @@
+<h1> Create a New User </h1>
+
+<%= form_for :user, url: users_path do |form| %>
+  <!--Name-->
+  <p> 
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+ <!--Net ID-->
+  <p>
+    <%= form.label :netid %><br>
+    <%= form.text_area :netid %>
+  </p>
+
+<!--Phone-->  
+  <p>
+    <%= form.label :phone %><br>
+    <%= form.text_area :phone %>
+  </p>
+
+<!--Picture-->
+  <p>
+    <%= form.label :picture %><br>
+    <%= form.text_area :picture %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

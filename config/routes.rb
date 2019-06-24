@@ -3,18 +3,27 @@ Rails.application.routes.draw do
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end
 
+
+  ## Main routes
+
   post "/graphql", to: "graphql#execute"
   
-  root 'issues#index'
+  root 'pages#welcome'
 
   get 'about' => 'pages#about'
 
-  get 'index' => 'issues#index'
+  get 'issues' => 'issues#index'
 
   get 'json' => 'issues#json'
 
   post 'createIssueMobile' => 'issues#createIssueMobile'
 
   resources :issues
+
+  ## Routes for Users
+  
+  get 'users' => 'users#index'
+
+  resources :users
 
 end
