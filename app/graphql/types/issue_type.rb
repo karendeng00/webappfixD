@@ -5,7 +5,6 @@ module Types
     field :description, String, null:false
     field :image, String, null:false
     field :location, String, null:false
-    field :user, String, null:false
-    field :user_image, String, null:false
+    field :user_id, Integer, null:false
   end
 end

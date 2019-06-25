@@ -1,2 +1,3 @@
 class HrlIssue < Issue
+
 end

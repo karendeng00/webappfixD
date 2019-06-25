@@ -1,2 +1,3 @@
 class SnIssue < Issue
+
 end

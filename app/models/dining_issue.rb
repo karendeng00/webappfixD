@@ -1,2 +1,3 @@
 class DiningIssue < Issue
+
 end
