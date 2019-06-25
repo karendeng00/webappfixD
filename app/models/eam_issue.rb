@@ -1,0 +1,2 @@
+class EamIssue < Issue
+end
