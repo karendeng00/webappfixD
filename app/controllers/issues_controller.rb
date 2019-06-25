@@ -16,8 +16,8 @@ class IssuesController < ApplicationController
 
     def update 
         @issue = Issue.find(params[:id])
+        @issue.update(issue_params)
         if User.exists?(id: @issue.user_id)
-            @issue.update(issue_params)
             redirect_to issues_path
         else
             render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
@@ -43,20 +43,25 @@ class IssuesController < ApplicationController
         end
         
     end
-    
-    def destroy 
-        @issue = Issue.find(params[:id])
-        @issue.destroy
-        redirect_to issues_path
-    end
 
     def createIssueMobile
         @issue = Issue.new(issue_params)
+        if User.exists?(id: @issue.user_id)
+            @issue.save
+        else
+            render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
+        end
         if @issue.save
           render json: @issue, status: :created
         else
           render json: @issue.errors, status: :unprocessable_entity
         end
+    end
+
+    def destroy 
+        @issue = Issue.find(params[:id])
+        @issue.destroy
+        redirect_to issues_path
     end
 
 
