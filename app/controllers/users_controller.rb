@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         redirect_to users_path
     end
 
-    def show 
+    def show
         @user = User.find(params[:id])
         @issues = Issue.where(user_id: @user.id)
     end
