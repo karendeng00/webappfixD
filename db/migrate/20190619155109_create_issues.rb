@@ -5,7 +5,7 @@ class CreateIssues < ActiveRecord::Migration[5.2]
       t.text :description 
       t.string :image
       t.text :location
-      t.s :user_id
+      t.integer :user_id
       
       t.timestamps 
     end
