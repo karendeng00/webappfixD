@@ -14,7 +14,7 @@
   <tr>
     <td> <%= issue.id%> </td>
     <td> <%= link_to issue.title, issue_path(issue) %> </td>
-        <td> <%= issue.user %> </td>
+        <td> <%= issue.user_id %> </td>
     <td> <%= issue.description %> </td>
     <td> <%= issue.location %> </td>
     <td> <%= link_to "Edit", edit_issue_path(issue) %> </td>

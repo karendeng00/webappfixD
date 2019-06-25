@@ -1,12 +1,11 @@
 class CreateIssues < ActiveRecord::Migration[5.2]
   def change
     create_table :issues do |t|
-      t.text :title
+      t.string :title
       t.text :description 
-      t.text :image
+      t.string :image
       t.text :location
-      t.text :user
-      t.text :user_image
+      t.s :user_id
       
       t.timestamps 
     end

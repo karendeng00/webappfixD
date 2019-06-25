@@ -4,8 +4,7 @@
 <p> Description: <%= @issue.description %></p>
 <p> Image URL: <%= @issue.image %></p>
 <p> Location: <%= @issue.location %></p>
-<p> User: <%= @issue.user %></p>
-<p> User Image: <%= @issue.user_image %> </p>
+<p> User: <%= @issue.user_id %></p>
 
 <p> <%= link_to "Edit", edit_issue_path(@issue) %> &nbsp; &nbsp;
 <%= link_to "Delete", issue_path(@issue), method: :delete,

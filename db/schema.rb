@@ -17,17 +17,16 @@ ActiveRecord::Schema.define(version: 2019_06_24_194624) do
     t.text "description"
     t.text "image"
     t.text "location"
-    t.text "user"
-    t.text "user_image"
+    t.text "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.text "name"
-    t.text "netid"
-    t.text "phone"
-    t.text "picture"
+    t.string "name"
+    t.string "netid"
+    t.string "phone"
+    t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
