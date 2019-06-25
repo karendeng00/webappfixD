@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'json' => 'issues#json'
 
+  get 'testing' => 'pages#testing'
+
   post 'createIssueMobile' => 'issues#createIssueMobile'
 
   resources :issues

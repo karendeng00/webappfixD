@@ -49,11 +49,9 @@ class IssuesController < ApplicationController
         end
     end
 
-
     #Define the parameters of an Issue
     private def issue_params
         params.require(:issue).permit(:title, :description, :image, :location, :user, :user_image, :date, :time)
     end 
-
 
 end
