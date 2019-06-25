@@ -1,6 +1,7 @@
 <h1> User List </h1>
 <table style="width:100%">
   <tr>
+    <th>User ID</th>
     <th>Name</th>
     <th>Net ID</th> 
     <th>Phone Number</th>
@@ -11,6 +12,7 @@
   
 <% @users.each do |user|%>
   <tr>
+    <td> <%= user.id %> </td>
     <td> <%= link_to user.name, user_path(user) %> </td>
     <td> <%= user.netid %> </td>
     <td> <%= user.phone %> </td>

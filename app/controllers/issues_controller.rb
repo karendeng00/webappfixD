@@ -16,8 +16,13 @@ class IssuesController < ApplicationController
 
     def update 
         @issue = Issue.find(params[:id])
-        @issue.update(issue_params)
-        redirect_to issues_path
+        if User.exists?(id: @issue.user_id)
+            @issue.update(issue_params)
+            redirect_to issues_path
+        else
+            render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
+        end
+        
     end
 
     def show 
@@ -30,8 +35,13 @@ class IssuesController < ApplicationController
 
     def create 
         @issue = Issue.new(issue_params)
-        @issue.save
-        redirect_to issues_path
+        if User.exists?(id: @issue.user_id)
+            @issue.save
+            redirect_to issues_path
+        else
+            render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
+        end
+        
     end
     
     def destroy 
