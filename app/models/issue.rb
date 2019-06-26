@@ -1,7 +1,7 @@
 class Issue < ApplicationRecord
     belongs_to :user
 
-    validates :type, presence: true
+    # validates :type, presence: true
 
     scope :sn_issue, -> { where(type: 'SN') } 
     scope :pt_issue, -> { where(type: 'PT') } 
