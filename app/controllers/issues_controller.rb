@@ -35,13 +35,14 @@ class IssuesController < ApplicationController
 
     def create 
         @issue = Issue.new(issue_params)
+        @issue.favorites = 0
+        @issue.likes = 0
         if User.exists?(id: @issue.user_id)
             @issue.save
             redirect_to issues_path
         else
             render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
         end
-        
     end
 
     def createIssueMobile
@@ -67,7 +68,7 @@ class IssuesController < ApplicationController
 
     #Define the parameters of an Issue
     private def issue_params
-        params.require(:issue).permit(:title, :description, :image, :location, :user_id, :type)
+        params.require(:issue).permit(:title, :description, :image, :location, :user_id)
     end 
 
 

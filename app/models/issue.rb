@@ -1,14 +1,20 @@
 class Issue < ApplicationRecord
     belongs_to :user
 
+
     # validates :type, presence: true
 
-    scope :sn_issue, -> { where(type: 'SN') } 
-    scope :pt_issue, -> { where(type: 'PT') } 
-    scope :hrl_issue, -> { where(type: 'HRL') }
-    scope :eam_issue, -> { where(type: 'EAM') }
-    scope :dining_issue, -> { where(type: 'Dining') }
-    
+
+    # before_save :set_type 
+    # TYPES = %w( DiningIssue EamIssue HrlIssue PtIssue SnIssue )
+
+    # def set_type
+    #     raiser "Override Method in Subclasses!"
+    # end
+
+
+
+
 
     ## Adds the "type" parameter to the json method
     def as_json(options={})
