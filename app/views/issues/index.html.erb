@@ -18,14 +18,14 @@
     <td> <%= issue.id%> </td>
     <th> <%= issue.type%> </th> 
     <td> <%= link_to issue.title, issue_path(issue) %> </td>
-    <td> <%= link_to issue.user_id, user_path(User.find(issue.user_id)) %> </td>
+    <td> <%= issue.user_id %> </td> <!---FIX MEEEEE--->
     <td> <%= issue.description %> </td>
     <td> <%= issue.location %> </td>
     <td> <%= link_to "Edit", edit_issue_path(issue) %> </td>
     <td> <%= link_to "Delete", issue_path(issue), method: :delete,
                                                     data: {confirm: "Are you sure you want to delete this Issue?"} %> </td>
     <td> <%= issue.likes%> </td>
-    <th> <%= issue.favorites%> </th>  
+    <th> <%= issue.favorites%> </th>
   </tr>
   <% end %>
 

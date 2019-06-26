@@ -31,4 +31,10 @@ Rails.application.routes.draw do
 
   resources :users
 
+  ## Routes for Comments
+
+  resources :comments
+
+  # get 'comments' => 'comments#index'
+
 end
