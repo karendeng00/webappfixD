@@ -71,7 +71,13 @@ class IssuesController < ApplicationController
 
     #Define the parameters of an Issue
     private def issue_params
-        params.require(:issue).permit(:title, :description, :image, :location, :user_id, :type)
+        params.require(:issue).permit(:title, :description, :image, :location, :user_id, :type,
+                                      :email, :phone, :name, :alternate_phone, :group, 
+                                      :urgency, :impact, :sensitive_info, :campus, :area,
+                                      :specific_location, :room_number, :service_animal,
+                                      :your_building, :your_floor, :your_room, :request_type,
+                                      :issue_building, :issue_floor, :issue_room, :service_type,
+                                      :fund_code, :topic)
     end 
 
 

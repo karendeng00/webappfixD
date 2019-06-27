@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_174943) do
+ActiveRecord::Schema.define(version: 2019_06_27_161342) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -34,6 +34,29 @@ ActiveRecord::Schema.define(version: 2019_06_26_174943) do
     t.integer "favorites"
     t.integer "user_id"
     t.string "issue_type"
+    t.string "email"
+    t.string "phone"
+    t.string "alternate_phone"
+    t.string "group"
+    t.string "urgency"
+    t.string "impact"
+    t.text "sensitive_info"
+    t.string "campus"
+    t.string "area"
+    t.string "specific_location"
+    t.string "room_number"
+    t.boolean "service_animal"
+    t.string "your_building"
+    t.string "your_floor"
+    t.string "your_room"
+    t.string "request_type"
+    t.string "issue_building"
+    t.string "issue_floor"
+    t.string "issue_room"
+    t.string "service_type"
+    t.string "fund_code"
+    t.string "topic"
+    t.string "name"
     t.index ["user_id"], name: "index_issues_on_user_id"
   end
 

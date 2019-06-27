@@ -14,7 +14,6 @@
 <table style="width:100%">
   <tr>
     <th>Issue ID</th>
-    <th>Issue Type</th>
     <th>Title</th> 
     <th>User ID</th>
     <th>Description</th>
@@ -26,7 +25,6 @@
 <% @issues.each do |issue|%>
   <tr>
     <td> <%= issue.id%> </td>
-    <td> <%= issue.type%> </td>
     <td> <%= link_to issue.title, issue_path(issue) %> </td>
     <td> <%= issue.user_id %> </td>
     <td> <%= issue.description %> </td>
