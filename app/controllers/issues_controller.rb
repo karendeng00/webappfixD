@@ -27,9 +27,6 @@ class IssuesController < ApplicationController
 
     def show 
         @issue = Issue.find(params[:id])
-        @issue.type = "hello"
-        @issue.save
-        logger.debug @issue.inspect
     end
 
     def new 
