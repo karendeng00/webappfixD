@@ -1,7 +1,7 @@
 class IssuesController < ApplicationController
     skip_before_action :verify_authenticity_token
 
-    def index 
+    def index
         @issues = Issue.all
     end
 
@@ -27,6 +27,9 @@ class IssuesController < ApplicationController
 
     def show 
         @issue = Issue.find(params[:id])
+        @issue.type = "hello"
+        @issue.save
+        logger.debug @issue.inspect
     end
 
     def new 
@@ -35,8 +38,8 @@ class IssuesController < ApplicationController
 
     def create 
         @issue = Issue.new(issue_params)
-        @issue.favorites = 0
-        @issue.likes = 0
+        # @issue.favorites = 0
+        # @issue.likes = 0
         if User.exists?(id: @issue.user_id)
             @issue.save
             redirect_to issues_path
@@ -68,7 +71,7 @@ class IssuesController < ApplicationController
 
     #Define the parameters of an Issue
     private def issue_params
-        params.require(:issue).permit(:title, :description, :image, :location, :user_id)
+        params.require(:issue).permit(:title, :description, :image, :location, :user_id, :type)
     end 
 
 

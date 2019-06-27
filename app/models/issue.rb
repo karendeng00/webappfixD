@@ -1,18 +1,13 @@
 class Issue < ApplicationRecord
     belongs_to :user
 
-
     # validates :type, presence: true
 
-
-    # before_save :set_type 
-    # TYPES = %w( DiningIssue EamIssue HrlIssue PtIssue SnIssue )
-
-    # def set_type
-    #     raiser "Override Method in Subclasses!"
-    # end
-
-
+    # scope :sn_issue, -> { where(type: 'SnIssue') } 
+    # scope :pt_issue, -> { where(type: 'PtIssue') } 
+    # scope :hrl_issue, -> { where(type: 'HrlIssue') }
+    # scope :eam_issue, -> { where(type: 'EamIssue') }
+    # scope :dining_issue, -> { where(type: 'DiningIssue') }
 
 
 
