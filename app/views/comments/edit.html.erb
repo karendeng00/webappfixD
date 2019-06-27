@@ -1,0 +1,14 @@
+<h1> Edit Comment </h1>
+
+<%= form_for :user, url: comment_path(@comment), method: :patch do |form| %>
+    <!--Comment Title-->
+    <p>
+        <%= form.label :comment title %><br>
+        <%= form.text_field :comment title %>
+    </p>
+    
+    <!--Comment-->
+    <<p>
+        <%= form.label :comment %><br>
+        <%= form.text_field :comment %>
+    </p>
