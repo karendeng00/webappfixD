@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
             redirect_to comment_path
         else
             render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
+        end
     end
 
     def destroy 
@@ -29,6 +30,7 @@ class CommentsController < ApplicationController
             redirect_to comment_path
         else
             render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
+        end
     end
 
     def create 
@@ -37,6 +39,7 @@ class CommentsController < ApplicationController
             redirect_to comments_path
         else
             render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
+        end
     end
 
     def edit
