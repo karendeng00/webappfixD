@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @issues = Issue.where(user_id: @user.id)
+        @comments = Comment.where(user_id: @user.id)
     end
 
     def new 
@@ -34,8 +35,6 @@ class UsersController < ApplicationController
         @user.destroy
         redirect_to users_path
     end
-
-    
 
     #Define the parameters of an User
     private def user_params
