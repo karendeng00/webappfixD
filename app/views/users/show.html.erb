@@ -42,6 +42,7 @@
 <table style="width:100%"
   <tr>
     <th>Issue ID</th>
+    <th>Issue Title</th>
     <th>Comment</th>
     <th>Time Created</th>
     <th>Time Updated</th>
@@ -52,6 +53,7 @@
 <% @comments.each do |comment|%>
   <tr>
     <td> <%= comment.issue_id %> </td>
+    <td> <%= comment.issue_title %> </td>
     <td> <%= comment.body %> </td>
     <td> <%= comment.created_at %> </td>
     <td> <%= comment.updated_at %> </td>
