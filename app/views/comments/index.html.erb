@@ -1,6 +1,7 @@
 <h1> Comments </h1>
 <table style="width:100%">
     <tr>
+        <th>Comment ID</th>
         <th>Issue ID</th>
         <th>User ID</th>
         <th>Comment</th>
@@ -12,6 +13,7 @@
 
 <% @comments.each do |comment|%>
     <tr>
+        <td> <%= comment.id %> </td>
         <td> <%= comment.issue_id %> </td>
         <td> <%= comment.user_id %> </td>
         <td> <%= comment.body %> </td>

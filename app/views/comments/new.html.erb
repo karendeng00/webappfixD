@@ -1,6 +1,7 @@
 <h1> Add New Comment </h1>
 
-<%= form_for :issue, url: comments_path do |form| %>
+<%= form_for :comment, url: comments_path do |form| %>
+  
   <!--Body-->
   <p> 
     <%= form.label :body %><br>
@@ -17,6 +18,10 @@
   <p>
     <%= form.label :user_id %><br>
     <%= form.text_area :user_id %>
+  </p>
+
+  <p>
+    <%= form.submit %>
   </p>
 
 <% end %>
