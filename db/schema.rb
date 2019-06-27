@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2019_06_27_161342) do
     t.integer "likes"
     t.integer "favorites"
     t.integer "user_id"
-    t.string "issue_type"
     t.string "email"
     t.string "phone"
     t.string "alternate_phone"
