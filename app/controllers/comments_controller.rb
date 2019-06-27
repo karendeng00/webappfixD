@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
     def index
-        print "Hello world"
+        @comments = Comment.all
     end
 
     def new 
@@ -39,9 +39,13 @@ class CommentsController < ApplicationController
             render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
     end
 
+    def edit
+        @comment = Comment.find(params[:id])
+    end
 
     private def comment_params
         params.require(:comment).permit(:body, :issue_id, :user_id)
     end 
 
+    
 end
