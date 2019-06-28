@@ -1,4 +1,10 @@
 <h1> <%= @issue.title%> </h1> 
+
+<p> <%= link_to "Edit", edit_issue_path(@issue) %> &nbsp; &nbsp;
+<%= link_to "Delete", issue_path(@issue), method: :delete,
+                                                    data: {confirm: "Are you sure you want to delete this Issue?"} %>
+</p>
+
 <p> Issue ID: <%= @issue.id %> </p>
 <p> Issue Type: <%= @issue.type %> </p>
 
@@ -35,6 +41,4 @@
 <h3> Parking and Transportation </h3>
 <p> Topic: <%= @issue.topic %></p>
 
-<p> <%= link_to "Edit", edit_issue_path(@issue) %> &nbsp; &nbsp;
-<%= link_to "Delete", issue_path(@issue), method: :delete,
-                                                    data: {confirm: "Are you sure you want to delete this Issue?"} %>
+
