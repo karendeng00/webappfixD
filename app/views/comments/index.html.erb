@@ -4,6 +4,7 @@
         <th>Comment ID</th>
         <th>Issue ID</th>
         <th>User ID</th>
+        <th>Issue Title</th>
         <th>Comment</th>
         <th>Time Created</th>
         <th>Time Updated</th>
@@ -16,6 +17,7 @@
         <td> <%= comment.id %> </td>
         <td> <%= comment.issue_id %> </td>
         <td> <%= comment.user_id %> </td>
+        <td> <%= Issue.find(params[comment.issue_id]) %> </td>
         <td> <%= comment.body %> </td>
         <td> <%= comment.created_at %> </td>
         <td> <%= comment.updated_at %> </td>

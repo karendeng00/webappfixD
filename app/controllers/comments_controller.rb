@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
 
     def new 
         @comment = Comment.new
+        @issue = Issue.new
     end
 
     def update 
