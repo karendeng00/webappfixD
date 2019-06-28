@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
 
     def index
         @comments = Comment.all
-        @issue = Issue.where(id: @comment.issue_id)
     end
 
     def new 
@@ -11,7 +10,7 @@ class CommentsController < ApplicationController
 
     def update 
         @comment = Comment.find(params[:id])
-        @comment.update(issue_params)
+        @comment.update(comment_params)
         if User.exists?(id: @comment.user_id) && Issue.exists?(id: @comment.issue_id)
             redirect_to comment_path
         else
@@ -45,7 +44,7 @@ class CommentsController < ApplicationController
     end
 
     private def comment_params
-        params.require(:comment).permit(:body, :issue_title, :issue_id, :user_id)
+        params.require(:comment).permit(:body, :issue_id, :user_id)
     end 
 
     
