@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'about' => 'pages#about'
 
+  ## Issue routes
+
   get 'issues' => 'issues#index'
 
   get 'json' => 'issues#json'

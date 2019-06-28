@@ -41,4 +41,28 @@
 <h3> Parking and Transportation </h3>
 <p> Topic: <%= @issue.topic %></p>
 
+<% comment_arr =  Comment.where(issue_id: @issue.id) %>
 
+<h3> Comments in Issue "<%= @issue.title%>" </h3>
+<table style="width:100%"
+  <tr>
+    <th>Comment ID</th>
+    <th>Issue ID</th>
+    <th>User ID</th>
+    <th>Issue Title</th>
+    <th>Comment</th>
+    <th>Time Created</th>
+    <th>Time Updated</th>
+  </tr>
+
+<% comment_arr.each do |comment| %>
+  <tr>
+    <td> <%= comment.id %> </td>
+    <td> <%= comment.issue_id %> </td>
+    <td> <%= comment.user_id %> </td>
+    <td> <%= Issue.find_by(id: comment.issue_id).title %> </td>
+    <td> <%= comment.body %> </td>
+    <td> <%= comment.created_at %> </td>
+    <td> <%= comment.updated_at %> </td>
+</tr>
+<% end %>

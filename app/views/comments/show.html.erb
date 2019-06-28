@@ -1,5 +1,9 @@
 <h1> Comments </h1> 
+<p> Comment ID: <%= @comment.id %> </p>
 <p> Comment body: <%= @comment.body %> </p>
 <p> Issue ID: <%= @comment.issue_id %> </p>
+<p> User ID: <%= @comment.user_id %> </p>
 
-<p> User ID: <%= @comment.user_id %></p>
+<p> <%= link_to "Edit", edit_comment_path(@comment) %> &nbsp; &nbsp;
+<%= link_to "Delete", comment_path(@comment), method: :delete,
+                                                    data: {confirm: "Are you sure you want to delete this Comment?"} %>
