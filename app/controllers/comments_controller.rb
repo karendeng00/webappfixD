@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 
     def index
         @comments = Comment.all
+        @issue = Issue.where(id: @comment.issue_id)
     end
 
     def new 
