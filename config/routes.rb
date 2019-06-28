@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get 'json' => 'issues#json'
 
+  post 'json/:id' => 'issues#jsonByIssue'
+
   post 'createIssueMobile' => 'issues#createIssueMobile'
 
   resources :issues

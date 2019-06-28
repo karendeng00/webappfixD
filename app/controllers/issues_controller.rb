@@ -10,6 +10,11 @@ class IssuesController < ApplicationController
         render json: @issues
     end
 
+    def jsonByIssue
+        @issue = Issue.find(params[:id])
+        render json: @issue
+    end
+
     def edit 
         @issue = Issue.find(params[:id])
     end    
