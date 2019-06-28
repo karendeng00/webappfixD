@@ -7,20 +7,6 @@
     <%= form.text_field :title %>
   </p>
 
-<!--Type-->
-  <p>
-    <%= form.radio_button :type, 'HrlIssue', :checked => true %>
-    <%= label :type_hrl, 'HRL' %>
-    <%= form.radio_button :type, 'EamIssue' %>
-    <%= label :type_eam, 'EAM' %>
-    <%= form.radio_button :type, 'SnIssue' %>
-    <%= label :type_sn, 'SN' %>
-    <%= form.radio_button :type, 'PtIssue' %>
-    <%= label :type_pt, 'PT' %>
-    <%= form.radio_button :type, 'DiningIssue' %>
-    <%= label :type_dining, 'Dining' %>
-  </p>
-
  <!--Description-->
   <p>
     <%= form.label :description %><br>
@@ -45,7 +31,28 @@
     <%= form.text_field :user_id %>
   </p>
 
+  <!--Type-->
+  <p>
+    <%= form.radio_button :type, 'HrlIssue', :checked => true %>
+    <%= label :type_hrl, 'HRL' %>
+    <%= form.radio_button :type, 'EamIssue' %>
+    <%= label :type_eam, 'EAM' %>
+    <%= form.radio_button :type, 'SnIssue' %>
+    <%= label :type_sn, 'SN' %>
+    <%= form.radio_button :type, 'PtIssue' %>
+    <%= label :type_pt, 'PT' %>
+    <%= form.radio_button :type, 'DiningIssue' %>
+    <%= label :type_dining, 'Dining' %>
+  </p>
   <p>
     <%= form.submit %>
   </p>
 <% end %>
+
+<h3>Details</h3>
+<table style="width:100%">
+  <tr>
+    <th>One</th>
+    <th>Two</th>
+  </tr>
+

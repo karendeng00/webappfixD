@@ -27,8 +27,6 @@ class IssuesController < ApplicationController
 
     def show 
         @issue = Issue.find(params[:id])
-        @issue.save
-        logger.debug @issue.inspect
     end
 
     def new 
@@ -66,7 +64,6 @@ class IssuesController < ApplicationController
         @issue.destroy
         redirect_to issues_path
     end
-
 
     #Define the parameters of an Issue
     private def issue_params
