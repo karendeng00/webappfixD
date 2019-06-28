@@ -17,29 +17,36 @@
 <p> Phone: <%= @issue.phone %></p>
 <p> Name: <%= @issue.name %></p>
 <p> Alternate Phone: <%= @issue.alternate_phone %></p>
-<p> Group: <%= @issue.group %></p>
-<h3> OIT </h3>
-<p> Urgency: <%= @issue.urgency %></p>
-<p> Impact: <%= @issue.impact %></p>
-<p> Sensitive Electronic Info: <%= @issue.sensitive_info %></p>
-<h3> HRL </h3>
-<p> Campus: <%= @issue.campus %></p>
-<p> Area: <%= @issue.area %></p>
-<p> Specific Location: <%= @issue.specific_location %></p>
-<p> Room: <%= @issue.room_number %></p>
-<p> Service Animal: <%= @issue.service_animal %></p>
-<h3> Facilities </h3>
-<p> Your Building: <%= @issue.your_building %></p>
-<p> Your Floor: <%= @issue.your_floor %></p>
-<p> Your Room: <%= @issue.your_room %></p>
-<p> Request Type: <%= @issue.request_type %></p
-<p> Issue Building: <%= @issue.issue_building %></p>
-<p> Issue Floor: <%= @issue.issue_floor %></p>
-<p> Issue Room: <%= @issue.issue_room %></p
-<p> Service Type: <%= @issue.service_type %></p>
-<p> Fund Code: <%= @issue.fund_code %></p>
-<h3> Parking and Transportation </h3>
-<p> Topic: <%= @issue.topic %></p>
+<% if @issue.type == "SnIssue" %>
+    <h3> OIT </h3>
+    <p> Urgency: <%= @issue.urgency %></p>
+    <p> Impact: <%= @issue.impact %></p>
+    <p> Sensitive Electronic Info: <%= @issue.sensitive_info %></p>
+<% end %>
+<% if @issue.type == "HrlIssue" %>
+    <h3> HRL </h3>
+    <p> Campus: <%= @issue.campus %></p>
+    <p> Area: <%= @issue.area %></p>
+    <p> Specific Location: <%= @issue.specific_location %></p>
+    <p> Room: <%= @issue.room_number %></p>
+    <p> Service Animal: <%= @issue.service_animal %></p>
+<% end %>
+<% if @issue.type == "EamIssue" %>
+    <h3> Facilities </h3>
+    <p> Your Building: <%= @issue.your_building %></p>
+    <p> Your Floor: <%= @issue.your_floor %></p>
+    <p> Your Room: <%= @issue.your_room %></p>
+    <p> Request Type: <%= @issue.request_type %></p>
+    <p> Issue Building: <%= @issue.issue_building %></p>
+    <p> Issue Floor: <%= @issue.issue_floor %></p>
+    <p> Issue Room: <%= @issue.issue_room %></p>
+    <p> Service Type: <%= @issue.service_type %></p>
+    <p> Fund Code: <%= @issue.fund_code %></p>
+<% end %>
+<% if @issue.type == "PtIssue" %>
+    <h3> Parking and Transportation </h3>
+    <p> Topic: <%= @issue.topic %></p>
+<% end %>
 
 <% comment_arr =  Comment.where(issue_id: @issue.id) %>
 

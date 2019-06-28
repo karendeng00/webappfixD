@@ -31,11 +31,11 @@
     <%= form.text_field :user_id %>
   </p>
 
-  <!--Type-->
+<!--Type-->
   <p>
     <%= form.radio_button :type, 'HrlIssue', :checked => true %>
     <%= label :type_hrl, 'HRL' %>
-    <%= form.radio_button :type, 'EamIssue' %>
+    <%= form.radio_button :type, 'EamIssue', :checked => false%>
     <%= label :type_eam, 'EAM' %>
     <%= form.radio_button :type, 'SnIssue' %>
     <%= label :type_sn, 'SN' %>
@@ -44,15 +44,9 @@
     <%= form.radio_button :type, 'DiningIssue' %>
     <%= label :type_dining, 'Dining' %>
   </p>
+  
   <p>
     <%= form.submit %>
   </p>
+
 <% end %>
-
-<h3>Details</h3>
-<table style="width:100%">
-  <tr>
-    <th>One</th>
-    <th>Two</th>
-  </tr>
-
