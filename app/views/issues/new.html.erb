@@ -44,27 +44,9 @@
     <%= form.radio_button :type, 'DiningIssue' %>
     <%= label :type_dining, 'Dining' %>
   </p>
+  
   <p>
     <%= form.submit %>
   </p>
 
-<% if form.radio_button :type, 'HrlIssue', :checked => true %>
-  <%= "HRL" %>
-<% end %>
-
-<% if form.radio_button :type, 'EamIssue', :checked => true %>
-  <%= "EAM" %>
-<% end %>
-
-<% end %>
-
-<h3>Details</h3>
-<table style="width:100%">
-  <tr>
-    <th>One</th>
-    <th>Two</th>
-  </tr>
-
-<% if @issue.type == "HrlIssue" %>
-  <%= "HRL" %>
 <% end %>
