@@ -31,11 +31,11 @@
     <%= form.text_field :user_id %>
   </p>
 
-  <!--Type-->
+<!--Type-->
   <p>
     <%= form.radio_button :type, 'HrlIssue', :checked => true %>
     <%= label :type_hrl, 'HRL' %>
-    <%= form.radio_button :type, 'EamIssue' %>
+    <%= form.radio_button :type, 'EamIssue', :checked => false%>
     <%= label :type_eam, 'EAM' %>
     <%= form.radio_button :type, 'SnIssue' %>
     <%= label :type_sn, 'SN' %>
@@ -47,6 +47,15 @@
   <p>
     <%= form.submit %>
   </p>
+
+<% if form.radio_button :type, 'HrlIssue', :checked => true %>
+  <%= "HRL" %>
+<% end %>
+
+<% if form.radio_button :type, 'EamIssue', :checked => true %>
+  <%= "EAM" %>
+<% end %>
+
 <% end %>
 
 <h3>Details</h3>
@@ -56,3 +65,6 @@
     <th>Two</th>
   </tr>
 
+<% if @issue.type == "HrlIssue" %>
+  <%= "HRL" %>
+<% end %>
