@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2019_06_27_175600) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.text "issue_title"
     t.integer "user_id"
     t.integer "issue_id"
     t.datetime "created_at", null: false
