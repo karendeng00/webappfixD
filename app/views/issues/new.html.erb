@@ -1,7 +1,7 @@
 <h1> Add New Issue </h1>
 
 <%= form_for :issue, url: issues_path do |form| %>
-  <!--Title-->
+  <!--Title--> 
   <p> 
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -43,6 +43,9 @@
     <%= label :type_pt, 'PT' %>
     <%= form.radio_button :type, 'DiningIssue' %>
     <%= label :type_dining, 'Dining' %>
+  </p>
+  <p>
+    <%= form.submit %>
   </p>
 <% end %>
 

@@ -2,11 +2,11 @@ class CommentsController < ApplicationController
 
     def index
         @comments = Comment.all
-        @issue = Issue.where(id: @comment.issue_id)
     end
 
     def new 
         @comment = Comment.new
+        @issue = Issue.new
     end
 
     def update 
@@ -27,16 +27,13 @@ class CommentsController < ApplicationController
 
     def show 
         @comment = Comment.find(params[:id])
-        if User.exists?(id: @comment.user_id) && Issue.exists?(id: @comment.issue_id)
-            redirect_to comment_path
-        else
-            render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
-        end
     end
 
     def create 
         @comment = Comment.new(comment_params)
+        logger.debug "ERROR" + comment_params.inspect
         if User.exists?(id: @comment.user_id) && Issue.exists?(id: @comment.issue_id)
+            @comment.save
             redirect_to comments_path
         else
             render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
