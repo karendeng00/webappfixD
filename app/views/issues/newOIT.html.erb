@@ -1,0 +1,20 @@
+<h1> New OIT Issue </h1>
+
+<%= form_for :issue, url: issues_path do |form| %>
+    <!--Urgency--> 
+    <p> 
+        <%= form.label :urgency %><br>
+        <%= form.text_field :urgency %>
+    </p>
+
+    <!--Area-->
+        <%= form.label :impact %><br>
+        <%= form.text_field :impact %>
+    </p>
+
+    <!--Specific Location-->
+        <%= form.label :sensitive_info %><br>
+        <%= form.text_field :sensitive_info %>
+    </p>
+
+<% end %>
