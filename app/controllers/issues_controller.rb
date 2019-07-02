@@ -34,13 +34,33 @@ class IssuesController < ApplicationController
         #logger.debug "issue id: " + @issue.id
     end
 
-    def newOIT
+    # def newOIT
+    #     @issue = Issue.new
+    #     @issue.title = params[:issue][:title]
+    #     @issue.user_id = params[:issue][:user_id]
+    #     @issue.description = params[:issue][:description]
+    #     logger.debug "@issue.user_id: " + @issue.user_id.to_s
+    #     #@issue.save
+    # end
+
+    def setPath
         @issue = Issue.new
         @issue.title = params[:issue][:title]
-        @issue.user_id = params[:issue][:user_id]
         @issue.description = params[:issue][:description]
-        logger.debug "@issue.user_id: " + @issue.user_id.to_s
-        #@issue.save
+        @issue.location =  params[:issue][:location]
+        @issue.image = params[:issue][:image]
+        @issue.user_id = params[:issue][:user_id]
+        @issue.type = params[:issue][:type]
+
+        if @issue.type == "SnIssue"
+            render "newOIT"
+        elsif @issue.type == "HrlIssue"
+            render "newHRL"
+        elsif @issue.type == "EamIssue"
+            render "newFMD"
+        elsif @issue.type == "PtIssue"
+            render "newPTS"
+        end
     end
 
     def create 

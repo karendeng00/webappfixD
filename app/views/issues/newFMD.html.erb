@@ -46,6 +46,11 @@
     <!--Fund Code-->
         <%= form.label :fund_code %><br>
         <%= form.text_field :fund_code %>
+        <%= hidden_field_tag "issue[user_id]",  @issue.user_id %>
+    </p>
+
+    <p>
+        <%= form.submit %>
     </p>
 
 <% end %>

@@ -13,8 +13,13 @@
     </p>
 
     <!--Specific Location-->
-        <%= form.label :area %><br>
-        <%= form.text_field :area %>
+        <%= form.label :specific_loaction %><br>
+        <%= form.text_field :specific_location %>
+        <%= hidden_field_tag "issue[user_id]",  @issue.user_id %>
+    </p>
+
+    <p>
+        <%= form.submit %>
     </p>
 
 <% end %>
