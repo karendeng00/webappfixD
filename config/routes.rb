@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   post 'createIssueMobile' => 'issues#createIssueMobile'
 
+  post 'createNewOIT' => 'issues#newOIT', :as => :newOIT
+
   resources :issues
 
   

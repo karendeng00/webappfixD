@@ -31,10 +31,21 @@ class IssuesController < ApplicationController
 
     def new 
         @issue = Issue.new
+        #logger.debug "issue id: " + @issue.id
+    end
+
+    def newOIT
+        @issue = Issue.new
+        @issue.title = params[:issue][:title]
+        @issue.user_id = params[:issue][:user_id]
+        @issue.description = params[:issue][:description]
+        logger.debug "@issue.user_id: " + @issue.user_id.to_s
+        #@issue.save
     end
 
     def create 
         @issue = Issue.new(issue_params)
+        logger.debug "@issue: " + @issue.inspect
         # @issue.favorites = 0
         # @issue.likes = 0
         if User.exists?(id: @issue.user_id)

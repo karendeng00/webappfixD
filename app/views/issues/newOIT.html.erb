@@ -17,6 +17,11 @@
     <p>
         <%= form.label :sensitive_info %><br>
         <%= form.text_field :sensitive_info %>
+        <%= hidden_field_tag "issue[user_id]",  @issue.user_id %>
+    </p>
+
+    <p>
+        <%= form.submit %>
     </p>
 
 <% end %>
