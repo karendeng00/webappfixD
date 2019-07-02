@@ -14,7 +14,7 @@ module Types
 
     # Return All Issues of a Specific User
     field :issues_by_user, [IssueType], null: false do 
-      argument :user, String, required: true
+      argument :user_id, Integer, required: true
       description "Return all Issues of a specific User"
     end
 
@@ -62,8 +62,8 @@ module Types
       Issue.find(id)
     end
   
-    def issues_by_user(user:)
-      Issue.where(user: user)
+    def issues_by_user(user_id:)
+      Issue.where(user_id: user_id)
     end
 
     def issues_by_type(type:)
