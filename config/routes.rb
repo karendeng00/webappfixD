@@ -23,11 +23,6 @@ Rails.application.routes.draw do
   post 'createIssueMobile' => 'issues#createIssueMobile'
 
   resources :issues
-  # resources :dining_issues, controller: 'issues', type: 'DiningIssue' 
-  # resources :eam_issues, controller: 'issues', type: 'EamIssue' 
-  # resources :hrl_issues, controller: 'issues', type: 'HrlIssue'
-  # resources :pt_issues, controller: 'issues', type: 'PtIssue'
-  # resources :sn_issues, controller: 'issues', type: 'SnIssue' 
 
   ## Routes for Users
   
