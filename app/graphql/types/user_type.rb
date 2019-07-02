@@ -1,12 +1,12 @@
 module Types
     class UserType < Types::BaseObject
         field :id, ID, null: false
-        field :name, String, null: false
-        field :netid, String, null: false
-        field :phone, String, null: false
-        field :picture, String, null: false
-        field :alt_phone, String, null: false
-        field :email, String, null: false
+        field :name, String, null: true
+        field :netid, String, null: true
+        field :phone, String, null: true
+        field :picture, String, null: true
+        field :alt_phone, String, null: true
+        field :email, String, null: true
     end
   end
   
