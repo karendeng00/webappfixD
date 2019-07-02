@@ -47,7 +47,7 @@ class IssuesController < ApplicationController
         @issue = Issue.new
         @issue.title = params[:issue][:title]
         @issue.description = params[:issue][:description]
-        @issue.location =  params[:issue][:location]
+        @issue.location = params[:issue][:location]
         @issue.image = params[:issue][:image]
         @issue.user_id = params[:issue][:user_id]
         @issue.type = params[:issue][:type]
@@ -61,6 +61,9 @@ class IssuesController < ApplicationController
         elsif @issue.type == "PtIssue"
             render "newPTS"
         end
+
+        @issue.save
+
     end
 
     def create 
