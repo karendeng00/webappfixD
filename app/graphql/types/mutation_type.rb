@@ -6,5 +6,7 @@ module Types
     ## Issues
 
     ## Comments
+    field :create_comment, mutation: Mutations::Comments::CreateComment
+    field :edit_comment, mutation: Mutations::Comments::EditComment
   end
 end
