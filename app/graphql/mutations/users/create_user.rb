@@ -1,5 +1,5 @@
-module Mutations 
-    module User
+module Mutations
+    module Users
         class CreateUser < BaseMutation
 
             argument :name, String, required: true
@@ -12,8 +12,8 @@ module Mutations
             # argument :location, String, required: true
             # argument :user_id, String, required: true
             # argument :type, String, required: true
-        
-            type Types::UserType    
+
+            type Types::UserType
             # type Types::IssueType
 
             # def resolve(title:, description:, image:, location: user_id:, type:)

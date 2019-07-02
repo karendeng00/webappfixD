@@ -53,7 +53,6 @@ module Types
       description "Return all Comments of a Specific User"
     end
 
-
     def all_issues
       Issue.all
     end
