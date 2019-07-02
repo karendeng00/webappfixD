@@ -2,7 +2,7 @@ module Types
   class QueryType < Types::BaseObject
 
     # Return All Issues
-    field :all_issues, [IssueType], null:false do 
+    field :all_issues, [IssueType], null:false do
       description "Return all Issues"
     end
 
@@ -13,7 +13,7 @@ module Types
     end
 
     # Return All Issues of a Specific User
-    field :issues_by_user, [IssueType], null: false do 
+    field :issues_by_user, [IssueType], null: false do
       argument :user, String, required: true
       description "Return all Issues of a specific User"
     end
@@ -52,7 +52,6 @@ module Types
       argument :user_id, Integer, required:true
       description "Return all Comments of a Specific User"
     end
-
 
     def all_issues
       Issue.all
