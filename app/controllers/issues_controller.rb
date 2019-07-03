@@ -53,7 +53,7 @@ class IssuesController < ApplicationController
         @issue.type = params[:issue][:type]
 
         if @issue.type == "SnIssue"
-            render "newOIT"
+            oitPath
         elsif @issue.type == "HrlIssue"
             render "newHRL"
         elsif @issue.type == "EamIssue"
@@ -64,6 +64,14 @@ class IssuesController < ApplicationController
 
         @issue.save
 
+    end
+
+    def oitPath
+        render "newOIT"
+        @issue.urgency = params[:issue][:urgency]
+        @issue.impact = params[:issue][:impact]
+        @issue.sensitive_info = params[:issue][:sensitive_info]
+        @issue.save
     end
 
     def create 
