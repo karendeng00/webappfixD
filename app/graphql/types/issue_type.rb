@@ -2,7 +2,7 @@ module Types
   class IssueType < Types::BaseObject
     field :id, ID, null:false
     field :title, String, null:true
-    field :description, String, null:true
+    field :description, String, null:false
     field :image, String, null:true
     field :location, String, null:true
     field :user_id, Integer, null:true

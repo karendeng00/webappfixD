@@ -1,7 +1,6 @@
 module Mutations
     module Issues
         class CreateIssue < BaseMutation
-            argument :body, String, required: true
             argument :title, String, required: true
             argument :description, String, required: false
             argument :image, String, required: false
@@ -36,12 +35,12 @@ module Mutations
  
             type Types::IssueType
 
-            def resolve(body:, title:, description:, image:, location:, user_id:, type:, likes:, favorites:,
-                email:, phone:, alternate_phone:, group:, urgency:, sensitive_info:, campus:, area:, 
-                specific_location:, room_number:, service_animal:, impact:, your_floor:, 
-                your_room:, request_type:, issue_building:, issue_floor:, issue_room:, service_type:, 
-                fund_code:, topic:, name:)
-                Comment.create!(body: body, title: title, description: description,
+            def resolve(title:, description: nil, image: nil, location: nil, user_id: nil, type:, likes:, favorites:,
+                email: nil, phone: nil, alternate_phone: nil, group: nil, urgency: nil, sensitive_info: nil, campus: nil, area: nil, 
+                specific_location: nil, room_number: nil, service_animal: nil, impact: nil, your_floor: nil, 
+                your_room: nil, request_type: nil, issue_building: nil, issue_floor: nil, issue_room: nil, service_type: nil, 
+                fund_code: nil, topic: nil, name: nil)
+                Issue.create!(title: title, description: description,
                 image: image, location: location, user_id: user_id, type: type, likes: likes, favorites: favorites,
                 email: email, phone: phone, alternate_phone: alternate_phone, group: group, 
                 urgency: urgency, sensitive_info: sensitive_info, campus: campus, area: area, 
