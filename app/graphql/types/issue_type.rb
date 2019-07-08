@@ -9,7 +9,6 @@ module Types
     field :type, String, null:true
     field :likes, Integer, null:true
     field :favorites, Integer, null:true
-    field :type, String, null:true
     field :email, String, null:true
     field :phone, String, null:true
     field :alternate_phone, String, null:true
