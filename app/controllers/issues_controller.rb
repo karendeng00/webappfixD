@@ -64,14 +64,14 @@ class IssuesController < ApplicationController
 
         @issue.save
 
-    end
+     end
 
     def oitPath
         render "newOIT"
-        @issue.urgency = params[:issue][:urgency]
-        @issue.impact = params[:issue][:impact]
-        @issue.sensitive_info = params[:issue][:sensitive_info]
-        @issue.save
+        # @issue = Issue.where(id: @issue.id)
+        # @issue.urgency = params[:urgency]
+        # @issue.impact = params[:issue][:impact]
+        # @issue.sensitive_info = params[:issue][:sensitive_info]
     end
 
     def create 
