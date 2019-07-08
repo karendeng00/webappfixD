@@ -7,6 +7,11 @@ ruby '2.3.7'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+#Postgresql
+gem 'pg'
+# gem to load env values
+#gem 'dotenv'
+gem 'dotenv-rails', groups: [:development, :test]
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
