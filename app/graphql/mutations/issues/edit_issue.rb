@@ -10,7 +10,6 @@ module Mutations
             argument :user_id, Integer, required: false
             argument :type, String, required: false
             argument :likes, Integer, required: false
-            argument :favorites, Integer, required: false
             argument :email, String, required: false
             argument :phone, String, required: false
             argument :alternate_phone, String, required:false
