@@ -2,14 +2,13 @@ module Types
   class IssueType < Types::BaseObject
     field :id, ID, null:false
     field :title, String, null:true
-    field :description, String, null:true
+    field :description, String, null:false
     field :image, String, null:true
     field :location, String, null:true
     field :user_id, Integer, null:true
     field :type, String, null:true
     field :likes, Integer, null:true
     field :favorites, Integer, null:true
-    field :type, String, null:true
     field :email, String, null:true
     field :phone, String, null:true
     field :alternate_phone, String, null:true
