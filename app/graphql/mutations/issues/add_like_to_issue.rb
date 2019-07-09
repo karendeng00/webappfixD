@@ -2,7 +2,7 @@ module Mutations
     module Issues
         class AddLikeToIssue < BaseMutation
             
-            argument :id, ID, required: true
+            argument :id, Int, required: true
 
             type Types::IssueType
 
