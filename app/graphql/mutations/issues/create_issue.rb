@@ -37,7 +37,7 @@ module Mutations
 
             def resolve(title:, description: nil, image: nil, location: nil, user_id: nil, type:, likes:, favorites:,
                 email: nil, phone: nil, alternate_phone: nil, group: nil, urgency: nil, sensitive_info: nil, campus: nil, area: nil, 
-                specific_location: nil, room_number: nil, service_animal: nil, impact: nil, your_floor: nil, 
+                specific_location: nil, room_number: nil, service_animal: nil, impact: nil, your_building: nil, your_floor: nil, 
                 your_room: nil, request_type: nil, issue_building: nil, issue_floor: nil, issue_room: nil, service_type: nil, 
                 fund_code: nil, topic: nil, name: nil)
                 Issue.create!(title: title, description: description,
@@ -45,7 +45,7 @@ module Mutations
                 email: email, phone: phone, alternate_phone: alternate_phone, group: group, 
                 urgency: urgency, sensitive_info: sensitive_info, campus: campus, area: area, 
                 specific_location: specific_location, room_number: room_number, service_animal: service_animal,
-                impact: impact, your_floor: your_floor, your_room: your_room, request_type: request_type,
+                impact: impact, your_floor: your_floor, your_building: your_building, your_room: your_room, request_type: request_type,
                 issue_building: issue_building, issue_floor: issue_floor, issue_room: issue_room, service_type: service_type, 
                 fund_code: fund_code, topic: topic, name: name)
             end
