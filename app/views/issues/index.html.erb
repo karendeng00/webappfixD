@@ -26,9 +26,9 @@
     <td> <%= link_to "Delete", issue_path(issue), method: :delete,
                   data: {confirm: "Are you sure you want to delete this Issue?"} %> </td>
     <td> <%= issue.likes%> </td>
-    <th> <%= issue.favorites%> </th>
+    <td> <%= issue.favorites%> </td>
     <% if Comment.exists?(issue_id: issue.id) %>
-    <th> <%= Comment.find_by(issue_id: issue.id).body %> </th>
+    <td> <%= Comment.find_by(issue_id: issue.id).body %> </td>
     <% end %>
   </tr>
   <% end %>
