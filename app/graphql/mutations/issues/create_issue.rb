@@ -19,8 +19,8 @@ module Mutations
             argument :area, String, required: false
             argument :specific_location, String, required: false
             argument :room_number, String, required: false
-            argument :service_animal, String, required: false
-            argument :impact, Boolean, required: false
+            argument :service_animal, Boolean, required: false
+            argument :impact, String, required: false
             argument :your_building, String, required: false
             argument :your_floor, String, required: false
             argument :your_room, String, required: false
