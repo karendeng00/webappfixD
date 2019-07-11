@@ -36,50 +36,9 @@ class IssuesController < ApplicationController
 
     def new 
         @issue = Issue.new
-        #logger.debug "issue id: " + @issue.id
     end
 
-    # def newOIT
-    #     @issue = Issue.new
-    #     @issue.title = params[:issue][:title]
-    #     @issue.user_id = params[:issue][:user_id]
-    #     @issue.description = params[:issue][:description]
-    #     logger.debug "@issue.user_id: " + @issue.user_id.to_s
-    #     #@issue.save
-    # end
-
-    def setPath
-        @issue = Issue.new
-        @issue.title = params[:issue][:title]
-        @issue.description = params[:issue][:description]
-        @issue.location = params[:issue][:location]
-        @issue.image = params[:issue][:image]
-        @issue.user_id = params[:issue][:user_id]
-        @issue.type = params[:issue][:type]
-
-        if @issue.type == "SnIssue"
-            oitPath
-        elsif @issue.type == "HrlIssue"
-            render "newHRL"
-        elsif @issue.type == "EamIssue"
-            render "newFMD"
-        elsif @issue.type == "PtIssue"
-            render "newPTS"
-        end
-
-        @issue.save
-
-     end
-
-    def oitPath
-        render "newOIT"
-        # @issue = Issue.where(id: @issue.id)
-        # @issue.urgency = params[:urgency]
-        # @issue.impact = params[:issue][:impact]
-        # @issue.sensitive_info = params[:issue][:sensitive_info]
-    end
-
-    def create 
+    def create
         @issue = Issue.new(issue_params)
         @issue.favorites = 0
         @issue.likes = 0
