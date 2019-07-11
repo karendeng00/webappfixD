@@ -1,0 +1,27 @@
+<h1> New OIT Issue </h1>
+
+<%= form_for :issue, url: issues_path do |form| %>
+    <!--Urgency--> 
+    <p> 
+        <%= form.label :urgency %><br>
+        <%= form.text_field :urgency %>
+    </p>
+
+    <!--Impact-->
+    <p>
+        <%= form.label :impact %><br>
+        <%= form.text_field :impact %>
+    </p>
+
+    <!--Sensitive Electronic Info-->
+    <p>
+        <%= form.label :sensitive_info %><br>
+        <%= form.text_field :sensitive_info %>
+        <%= hidden_field_tag "issue[user_id]",  @issue.user_id %>
+    </p>
+
+    <p>
+        <%= form.submit %>
+    </p>
+
+<% end %>

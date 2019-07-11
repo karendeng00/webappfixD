@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2019_06_27_175600) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "user_id"
-    t.integer "issue_id"
+    t.bigint "user_id"
+    t.bigint "issue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["issue_id"], name: "index_comments_on_issue_id"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_06_27_175600) do
     t.string "type"
     t.integer "likes"
     t.integer "favorites"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "email"
     t.string "phone"
     t.string "alternate_phone"
@@ -70,4 +73,7 @@ ActiveRecord::Schema.define(version: 2019_06_27_175600) do
     t.string "email"
   end
 
+  add_foreign_key "comments", "issues"
+  add_foreign_key "comments", "users"
+  add_foreign_key "issues", "users"
 end

@@ -1,6 +1,6 @@
 <h1> Add New Issue </h1>
 
-<%= form_for :issue, url: issues_path do |form| %>
+<%= form_for :issue, url: {:action => "setPath"} do |form| %>
   <!--Title--> 
   <p> 
     <%= form.label :title %><br>

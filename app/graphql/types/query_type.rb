@@ -35,6 +35,12 @@ module Types
       description "Return User of Specific ID"
     end
 
+    # Return User by NetId
+    field :user_by_net_id, UserType, null: false do 
+      argument :netid, String, required:true 
+      description "Return User From a Specific NetId"
+    end
+
     # Return Comment by ID
     field :comment_by_id, CommentType, null: false do
       argument :id, Integer, required: true
@@ -75,6 +81,10 @@ module Types
 
     def user_by_id(id:)
       User.find(id)
+    end
+
+    def user_by_net_id(netid:)
+      User.where(netid: netid).first
     end
 
     def comment_by_id(id:)

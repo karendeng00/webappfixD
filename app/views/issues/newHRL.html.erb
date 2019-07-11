@@ -1,0 +1,39 @@
+<h1> New HRL Issue </h1>
+
+<%= form_for :issue, url: issues_path do |form| %>
+    <!--Campus--> 
+    <p> 
+        <%= form.label :campus %><br>
+        <%= form.text_field :campus %>
+    </p>
+
+    <!--Area-->
+    <p>
+        <%= form.label :area %><br>
+        <%= form.text_field :area %>
+    </p>
+
+    <!--Specific Location-->
+    <p>
+        <%= form.label :specific_loaction %><br>
+        <%= form.text_field :specific_location %>
+        <%= hidden_field_tag "issue[user_id]",  @issue.user_id %>
+    </p>
+
+    <!--Room Number-->
+    <p>
+        <%= form.label :room_number %><br>
+        <%= form.text_field :room_number %>
+    </p>
+
+    <!--Service Animal-->
+    <p>
+        <%= form.label :service_animal %><br>
+        <%= form.text_field :service_animal %>
+    </p>
+
+    <p>
+        <%= form.submit %>
+    </p>
+
+<% end %>
