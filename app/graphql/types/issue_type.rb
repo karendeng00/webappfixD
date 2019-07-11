@@ -33,6 +33,7 @@ module Types
     field :fund_code, String, null:true
     field :topic, String, null:true
     field :name, String, null:true
+    field :created_at, String, null:true
  
   end
 end
