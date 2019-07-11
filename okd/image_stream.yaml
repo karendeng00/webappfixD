@@ -1,0 +1,19 @@
+{
+   "kind": "ImageStream",
+   "apiVersion": "v1",
+   "metadata": {
+      "name": "webappfixd-test",            
+      "labels": {
+         "application": "webappfixd-test"   
+      }
+   },
+   "spec": {                         
+      "dockerImageRepository": "",   
+      "tags": [                      
+         {
+            "name": "latest"
+         }
+      ]
+   }
+}
+
