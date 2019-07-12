@@ -5,6 +5,8 @@ module Types
         field :user_id, Integer, null: false
         field :issue_id, Integer, null: false
         field :created_at, String, null: true
+        field :user, Types::UserType, null:false
+        field :issue, Types::IssueType, null:false
     end
   end
   

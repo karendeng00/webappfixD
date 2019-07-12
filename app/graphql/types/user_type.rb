@@ -7,6 +7,7 @@ module Types
         field :picture, String, null: true
         field :alt_phone, String, null: true
         field :email, String, null: true
+        field :issues, [Types::IssueType], null: true
     end
   end
   
