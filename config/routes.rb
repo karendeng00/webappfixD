@@ -18,15 +18,17 @@ Rails.application.routes.draw do
   get 'newOIT/:id' => 'issues#newOIT', as: 'new_oit'
   post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_oit'
 
-  # # EAM routes
-  # get 'newEAM/:id' => 'issues#newEAM', as 'new_eam'
-  # post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_eam'
+  ## EAM routes
+  get 'newEAM/:id' => 'issues#newEAM', as: 'new_eam'
+  post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_eam'
 
-  # get 'newPT/:id' => 'issues#newPT', as 'new_pt'
-  # post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_pt'
+  ## PT routes
+  get 'newPT/:id' => 'issues#newPT', as: 'new_pt'
+  post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_pt'
 
-  # get 'newHRL/:id' => 'issues#newHRL', as 'new_hrl'
-  # post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_hrl'
+  ## HRL routes
+  get 'newHRL/:id' => 'issues#newHRL', as: 'new_hrl'
+  post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_hrl'
 
   get 'issues' => 'issues#index'
 

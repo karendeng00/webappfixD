@@ -23,7 +23,15 @@ class IssuesController < ApplicationController
         @issue = Issue.find(params[:id])
         @issue.update(issue_params)
         if User.exists?(id: @issue.user_id)
-            redirect_to issues_path
+            if @issue.type == "SnIssue"
+                redirect_to new_oit_path(@issue)
+            elsif @issue.type == "HrlIssue"
+                redirect_to new_hrl_path(@issue)
+            elsif @issue.type == "EamIssue"
+                redirect_to new_eam_path(@issue)
+            elsif @issue.type == "PtIssue"
+                redirect_to new_pt_path(@issue)
+            end
         else
             #render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
             render json: {status: "error", code: 3000, message: @issue.errors.message}
