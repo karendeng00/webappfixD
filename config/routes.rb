@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   ## Issue routes
 
+  get 'newOIT/:id' => 'issues#newOIT'
+
   get 'issues' => 'issues#index'
 
   get 'json' => 'issues#json'

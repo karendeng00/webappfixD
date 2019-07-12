@@ -17,7 +17,7 @@ class IssuesController < ApplicationController
 
     def edit 
         @issue = Issue.find(params[:id])
-    end    
+    end
 
     def update 
         @issue = Issue.find(params[:id])
@@ -39,57 +39,62 @@ class IssuesController < ApplicationController
         #logger.debug "issue id: " + @issue.id
     end
 
-    # def newOIT
-    #     @issue = Issue.new
-    #     @issue.title = params[:issue][:title]
-    #     @issue.user_id = params[:issue][:user_id]
-    #     @issue.description = params[:issue][:description]
-    #     logger.debug "@issue.user_id: " + @issue.user_id.to_s
-    #     #@issue.save
-    # end
-
-    def setPath
-        @issue = Issue.new
-        @issue.title = params[:issue][:title]
-        @issue.description = params[:issue][:description]
-        @issue.location = params[:issue][:location]
-        @issue.image = params[:issue][:image]
-        @issue.user_id = params[:issue][:user_id]
-        @issue.type = params[:issue][:type]
-
-        if @issue.type == "SnIssue"
-            oitPath
-        elsif @issue.type == "HrlIssue"
-            render "newHRL"
-        elsif @issue.type == "EamIssue"
-            render "newFMD"
-        elsif @issue.type == "PtIssue"
-            render "newPTS"
-        end
-
-        @issue.save
-
-     end
-
-    def oitPath
-        render "newOIT"
-        # @issue = Issue.where(id: @issue.id)
-        # @issue.urgency = params[:urgency]
-        # @issue.impact = params[:issue][:impact]
-        # @issue.sensitive_info = params[:issue][:sensitive_info]
+    def newOIT
+        @issue = Issue.find(params[:id])
+        @issue.update(issue_params)
+        redirect_to newOIT
     end
+
+    # def setPath
+    #     # @issue = Issue.new
+    #     # @issue.title = params[:issue][:title]
+    #     # @issue.description = params[:issue][:description]
+    #     # @issue.location = params[:issue][:location]
+    #     # @issue.image = params[:issue][:image]
+    #     # @issue.user_id = params[:issue][:user_id]
+    #     # @issue.type = params[:issue][:type]
+    #     # @issue.favorites = 0
+    #     # @issue.likes = 0
+
+    #     if @issue.type == "SnIssue"
+    #         render "newOIT"
+    #     elsif @issue.type == "HrlIssue"
+    #         render "newHRL"
+    #     elsif @issue.type == "EamIssue"
+    #         render "newFMD"
+    #     elsif @issue.type == "PtIssue"
+    #         render "newPTS"
+    #     end
+
+    # end
 
     def create 
         @issue = Issue.new(issue_params)
         @issue.favorites = 0
         @issue.likes = 0
+        @issue.save
+
         if User.exists?(id: @issue.user_id)
-            @issue.save
-            redirect_to issues_path
+            if @issue.type == "SnIssue"
+                @issue.newOIT
+                @issue.save
+            end
         else
             render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
         end
     end
+
+    # def create 
+    #     @issue = Issue.new(issue_params)
+    #     @issue.favorites = 0
+    #     @issue.likes = 0
+    #     if User.exists?(id: @issue.user_id)
+    #         @issue.save
+    #         redirect_to issues_path
+    #     else
+    #         render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
+    #     end
+    # end
 
     def destroy 
         @issue = Issue.find(params[:id])

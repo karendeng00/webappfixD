@@ -1,6 +1,6 @@
 <h1> New OIT Issue </h1>
 
-<%= form_for :issue, url: issues_path do |form| %>
+<%= form_for @issue do |form| %>
     <!--Urgency--> 
     <p> 
         <%= form.label :urgency %><br>
