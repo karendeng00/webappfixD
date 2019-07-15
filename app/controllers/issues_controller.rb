@@ -28,7 +28,7 @@ class IssuesController < ApplicationController
             elsif @issue.type == "HrlIssue"
                 redirect_to new_hrl_path(@issue)
             elsif @issue.type == "EamIssue"
-                redirect_to new_eam_path(@issue)
+                redirect_to new_fmd_path(@issue)
             elsif @issue.type == "PtIssue"
                 redirect_to new_pt_path(@issue)
             end
@@ -60,7 +60,7 @@ class IssuesController < ApplicationController
             elsif @issue.type == "HrlIssue"
                 redirect_to new_hrl_path(@issue)
             elsif @issue.type == "EamIssue"
-                redirect_to new_eam_path(@issue)
+                redirect_to new_fmd_path(@issue)
             elsif @issue.type == "PtIssue"
                 redirect_to new_pt_path(@issue)
             end
@@ -78,7 +78,7 @@ class IssuesController < ApplicationController
         @issue = Issue.find(params[:id])
     end
 
-    def newEAM
+    def newFMD
         @issue = Issue.find(params[:id])
     end
 

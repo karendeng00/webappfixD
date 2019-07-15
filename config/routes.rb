@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_oit'
 
   ## EAM routes
-  get 'newEAM/:id' => 'issues#newEAM', as: 'new_eam'
-  post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_eam'
+  get 'newFMD/:id' => 'issues#newFMD', as: 'new_fmd'
+  post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_fmd'
 
   ## PT routes
   get 'newPT/:id' => 'issues#newPT', as: 'new_pt'
