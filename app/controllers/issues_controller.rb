@@ -34,7 +34,7 @@ class IssuesController < ApplicationController
             end
         else
             #render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
-            render json: {status: "error", code: 3000, message: @issue.errors.message}
+            render json: {status: "error", code: 3000, messages: @issue.errors.messages}
         end
         
     end
@@ -54,7 +54,7 @@ class IssuesController < ApplicationController
         @issue.likes = 0
         
 
-        if @issue.save #User.exists?(id: @issue.user_id)
+        if @issue.save #&& User.exists?(id: @issue.user_id)
             if @issue.type == "SnIssue"
                 redirect_to new_oit_path(@issue)
             elsif @issue.type == "HrlIssue"
@@ -66,7 +66,7 @@ class IssuesController < ApplicationController
             end
         else
             # render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
-            render json: {status: "error", code: 3000, message: @issue.errors.message}
+            render json: {status: "error", code: 3000, messages: @issue.errors.messages}
         end
     end
 
