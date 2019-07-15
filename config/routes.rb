@@ -18,13 +18,13 @@ Rails.application.routes.draw do
   get 'newOIT/:id' => 'issues#newOIT', as: 'new_oit'
   post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_oit'
 
-  ## EAM routes
+  ## FMD routes
   get 'newFMD/:id' => 'issues#newFMD', as: 'new_fmd'
   post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_fmd'
 
-  ## PT routes
-  get 'newPT/:id' => 'issues#newPT', as: 'new_pt'
-  post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_pt'
+  ## PTS routes
+  get 'newPTS/:id' => 'issues#newPTS', as: 'new_pts'
+  post 'updateIssue/:id', to: 'issues#updateIssue', as: 'update_pts'
 
   ## HRL routes
   get 'newHRL/:id' => 'issues#newHRL', as: 'new_hrl'
