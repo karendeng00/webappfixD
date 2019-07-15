@@ -4,6 +4,7 @@ module Mutations
 
             argument :id, ID, required: true
             argument :body, String, required: false
+            argument :image, String, required: false
             argument :user_id, Integer, required: false
             argument :issue_id, Integer, required: false
 
