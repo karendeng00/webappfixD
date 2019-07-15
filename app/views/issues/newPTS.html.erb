@@ -1,6 +1,6 @@
 <h1> New PTS Issue </h1>
 
-<%= form_for :issue, url: issues_path do |form| %>
+<%= form_for :issue, url: update_pt_path(@issue) do |form| %>
     <!--Topic--> 
         <p> 
             <%= form.label :topic %><br>

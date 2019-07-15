@@ -17,15 +17,24 @@ class IssuesController < ApplicationController
 
     def edit 
         @issue = Issue.find(params[:id])
-    end    
+    end
 
     def update 
         @issue = Issue.find(params[:id])
         @issue.update(issue_params)
         if User.exists?(id: @issue.user_id)
-            redirect_to issues_path
+            if @issue.type == "SnIssue"
+                redirect_to new_oit_path(@issue)
+            elsif @issue.type == "HrlIssue"
+                redirect_to new_hrl_path(@issue)
+            elsif @issue.type == "EamIssue"
+                redirect_to new_fmd_path(@issue)
+            elsif @issue.type == "PtIssue"
+                redirect_to new_pt_path(@issue)
+            end
         else
-            render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
+            #render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
+            render json: {status: "error", code: 3000, messages: @issue.errors.messages}
         end
         
     end
@@ -38,16 +47,50 @@ class IssuesController < ApplicationController
         @issue = Issue.new
     end
 
-    def create
+    def create 
         @issue = Issue.new(issue_params)
         @issue.favorites = 0
         @issue.likes = 0
-        if User.exists?(id: @issue.user_id)
-            @issue.save
-            redirect_to issues_path
+        
+
+        if @issue.save #&& User.exists?(id: @issue.user_id)
+            if @issue.type == "SnIssue"
+                redirect_to new_oit_path(@issue)
+            elsif @issue.type == "HrlIssue"
+                redirect_to new_hrl_path(@issue)
+            elsif @issue.type == "EamIssue"
+                redirect_to new_fmd_path(@issue)
+            elsif @issue.type == "PtIssue"
+                redirect_to new_pt_path(@issue)
+            end
         else
-            render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
+            # render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
+            render json: {status: "error", code: 3000, messages: @issue.errors.messages}
         end
+    end
+
+    def newOIT
+        @issue = Issue.find(params[:id])
+    end
+
+    def newHRL
+        @issue = Issue.find(params[:id])
+    end
+
+    def newFMD
+        @issue = Issue.find(params[:id])
+    end
+
+    def newPT
+        @issue = Issue.find(params[:id])
+    end
+
+    def updateIssue
+        @issue = Issue.find(params[:id])
+        @issue.update(issue_params)
+        @issue.save
+
+        redirect_to issues_path
     end
 
     def destroy 

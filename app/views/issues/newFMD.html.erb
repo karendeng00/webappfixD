@@ -1,6 +1,6 @@
 <h1> New FMD Issue </h1>
 
-<%= form_for :issue, url: issues_path do |form| %>
+<%= form_for :issue, url: update_fmd_path(@issue) do |form| %>
     <!--Your Building--> 
     <p> 
         <%= form.label :your_building %><br>
