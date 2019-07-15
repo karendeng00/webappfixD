@@ -30,7 +30,7 @@ class IssuesController < ApplicationController
             elsif @issue.type == "EamIssue"
                 redirect_to new_fmd_path(@issue)
             elsif @issue.type == "PtIssue"
-                redirect_to new_pt_path(@issue)
+                redirect_to new_pts_path(@issue)
             end
         else
             #render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
@@ -61,7 +61,7 @@ class IssuesController < ApplicationController
             elsif @issue.type == "EamIssue"
                 redirect_to new_fmd_path(@issue)
             elsif @issue.type == "PtIssue"
-                redirect_to new_pt_path(@issue)
+                redirect_to new_pts_path(@issue)
             end
         else
             # render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
@@ -81,7 +81,7 @@ class IssuesController < ApplicationController
         @issue = Issue.find(params[:id])
     end
 
-    def newPT
+    def newPTS
         @issue = Issue.find(params[:id])
     end
 
