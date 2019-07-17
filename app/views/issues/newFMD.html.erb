@@ -1,0 +1,56 @@
+<h1> New FMD Issue </h1>
+
+<%= form_for :issue, url: update_fmd_path(@issue) do |form| %>
+    <!--Your Building--> 
+    <p> 
+        <%= form.label :your_building %><br>
+        <%= form.text_field :your_building %>
+    </p>
+
+    <!--Your Floor-->
+        <%= form.label :your_floor %><br>
+        <%= form.text_field :your_floor %>
+    </p>
+
+    <!--Your Room-->
+        <%= form.label :your_room %><br>
+        <%= form.text_field :your_room %>
+    </p>
+
+    <!--Request Type-->
+    <%= form.label :request_type %><br>
+    <%= form.text_field :request_type %>
+    </p>
+
+    <!--Issue Building--> 
+    <p> 
+        <%= form.label :issue_building %><br>
+        <%= form.text_field :issue_building %>
+    </p>
+
+    <!--Issue Floor-->
+        <%= form.label :issue_floor %><br>
+        <%= form.text_field :issue_floor %>
+    </p>
+
+    <!--Issue Room-->
+        <%= form.label :issue_room %><br>
+        <%= form.text_field :issue_room %>
+    </p>
+
+    <!--Service Type-->
+        <%= form.label :service_type %><br>
+        <%= form.text_field :service_type %>
+    </p>
+
+    <!--Fund Code-->
+        <%= form.label :fund_code %><br>
+        <%= form.text_field :fund_code %>
+        <%= hidden_field_tag "issue[user_id]",  @issue.user_id %>
+    </p>
+
+    <p>
+        <%= form.submit %>
+    </p>
+
+<% end %>

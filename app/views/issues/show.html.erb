@@ -57,10 +57,9 @@
     <th>Issue ID</th>
     <th>User ID</th>
     <th>Issue Title</th>
-    <th>Comment</th>
-    <th>Time Created</th>
-    <th>Time Updated</th>
-    <th>Image </th>
+    <th>Body</th>
+    <th>Image</th>
+    <th>Created At</th>
   </tr>
 
 <% comment_arr.each do |comment| %>
@@ -70,8 +69,7 @@
     <td> <%= comment.user_id %> </td>
     <td> <%= Issue.find_by(id: comment.issue_id).title %> </td>
     <td> <%= comment.body %> </td>
+    <td> <%= comment.image %> </td>
     <td> <%= comment.created_at %> </td>
-    <td> <%= comment.updated_at %> </td>
-    <td> <%= comment.image %> </td
 </tr>
 <% end %>
