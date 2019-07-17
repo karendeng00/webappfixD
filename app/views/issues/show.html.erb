@@ -60,6 +60,7 @@
     <th>Comment</th>
     <th>Time Created</th>
     <th>Time Updated</th>
+    <th>Image </th>
   </tr>
 
 <% comment_arr.each do |comment| %>
@@ -71,5 +72,6 @@
     <td> <%= comment.body %> </td>
     <td> <%= comment.created_at %> </td>
     <td> <%= comment.updated_at %> </td>
+    <td> <%= comment.image %> </td
 </tr>
 <% end %>

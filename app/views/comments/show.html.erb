@@ -3,6 +3,7 @@
 <p> Comment body: <%= @comment.body %> </p>
 <p> Issue ID: <%= @comment.issue_id %> </p>
 <p> User ID: <%= @comment.user_id %> </p>
+<p> Comment Image: <%= @comment.image %> </p>
 
 <p> <%= link_to "Edit", edit_comment_path(@comment) %> &nbsp; &nbsp;
 <%= link_to "Delete", comment_path(@comment), method: :delete,

@@ -4,6 +4,7 @@ module Types
         field :body, String, null: false
         field :user_id, Integer, null: false
         field :issue_id, Integer, null: false
+        field :image, String, null: false
     end
   end
   
