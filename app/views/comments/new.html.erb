@@ -1,0 +1,33 @@
+<h1> Add New Comment </h1>
+
+<%= form_for :comment, url: comments_path do |form| %>
+  
+  <!--Body-->
+  <p>   
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+
+  <!--Image-->
+  <p>
+    <%= form.label :image %><br>
+    <%= form.text_field :image %>
+  </p>
+
+ <!--Issue ID-->
+  <p>
+    <%= form.label :issue_id %><br>
+    <%= form.text_field :issue_id %>
+  </p>
+
+  <!--User ID-->
+  <p>
+    <%= form.label :user_id %><br>
+    <%= form.text_field :user_id %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

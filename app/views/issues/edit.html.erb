@@ -27,25 +27,22 @@
 
 <!--User-->
   <p>
-    <%= form.label :user %><br>
-    <%= form.text_area :user %>
+    <%= form.label :user_id %><br>
+    <%= form.text_area :user_id %>
   </p>
 
-<!--User Image-->
+<!--Type-->
   <p>
-    <%= form.label :user_image %><br>
-    <%= form.text_area :user_image %>
-  </p>
- 
-<!--Date-->
-  <p>
-    <%= form.label :date %><br>
-    <%= form.text_area :date %>
-  </p>
-<!--Time-->
-  <p>
-    <%= form.label :time %><br>
-    <%= form.text_area :time %>
+    <%= form.radio_button :type, 'HrlIssue', :checked => true %>
+    <%= label :type_hrl, 'HRL' %>
+    <%= form.radio_button :type, 'EamIssue' %>
+    <%= label :type_eam, 'EAM' %>
+    <%= form.radio_button :type, 'SnIssue' %>
+    <%= label :type_sn, 'SN' %>
+    <%= form.radio_button :type, 'PtIssue' %>
+    <%= label :type_pt, 'PT' %>
+    <%= form.radio_button :type, 'DiningIssue' %>
+    <%= label :type_dining, 'Dining' %>
   </p>
 
   <p>

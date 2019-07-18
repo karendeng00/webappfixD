@@ -1,8 +1,75 @@
-<h2> Title: <%= @issue.title %> </h2>
+<h1> <%= @issue.title%> </h1> 
+
+<p> <%= link_to "Edit", edit_issue_path(@issue) %> &nbsp; &nbsp;
+<%= link_to "Delete", issue_path(@issue), method: :delete,
+                                                    data: {confirm: "Are you sure you want to delete this Issue?"} %>
+</p>
+
+<p> Issue ID: <%= @issue.id %> </p>
+<p> Issue Type: <%= @issue.type %> </p>
+
 <p> Description: <%= @issue.description %></p>
 <p> Image URL: <%= @issue.image %></p>
 <p> Location: <%= @issue.location %></p>
-<p> User: <%= @issue.user %></p>
-<p> User Image: <%= @issue.user_image %> </p>
-<p> Date: <%= @issue.date %></p>
-<p> Time: <%= @issue.time %></p>
+<p> User ID: <%= @issue.user_id %></p>
+<p> Type: <%= @issue.type %></p>
+<p> Email: <%= @issue.email %></p>
+<p> Phone: <%= @issue.phone %></p>
+<p> Name: <%= @issue.name %></p>
+<p> Alternate Phone: <%= @issue.alternate_phone %></p>
+<% if @issue.type == "SnIssue" %>
+    <h3> OIT </h3>
+    <p> Urgency: <%= @issue.urgency %></p>
+    <p> Impact: <%= @issue.impact %></p>
+    <p> Sensitive Electronic Info: <%= @issue.sensitive_info %></p>
+<% end %>
+<% if @issue.type == "HrlIssue" %>
+    <h3> HRL </h3>
+    <p> Campus: <%= @issue.campus %></p>
+    <p> Area: <%= @issue.area %></p>
+    <p> Specific Location: <%= @issue.specific_location %></p>
+    <p> Room: <%= @issue.room_number %></p>
+    <p> Service Animal: <%= @issue.service_animal %></p>
+<% end %>
+<% if @issue.type == "EamIssue" %>
+    <h3> Facilities </h3>
+    <p> Your Building: <%= @issue.your_building %></p>
+    <p> Your Floor: <%= @issue.your_floor %></p>
+    <p> Your Room: <%= @issue.your_room %></p>
+    <p> Request Type: <%= @issue.request_type %></p>
+    <p> Issue Building: <%= @issue.issue_building %></p>
+    <p> Issue Floor: <%= @issue.issue_floor %></p>
+    <p> Issue Room: <%= @issue.issue_room %></p>
+    <p> Service Type: <%= @issue.service_type %></p>
+    <p> Fund Code: <%= @issue.fund_code %></p>
+<% end %>
+<% if @issue.type == "PtIssue" %>
+    <h3> Parking and Transportation </h3>
+    <p> Topic: <%= @issue.topic %></p>
+<% end %>
+
+<% comment_arr =  Comment.where(issue_id: @issue.id) %>
+
+<h3> Comments in Issue "<%= @issue.title%>" </h3>
+<table style="width:100%"
+  <tr>
+    <th>Comment ID</th>
+    <th>Issue ID</th>
+    <th>User ID</th>
+    <th>Issue Title</th>
+    <th>Body</th>
+    <th>Image</th>
+    <th>Created At</th>
+  </tr>
+
+<% comment_arr.each do |comment| %>
+  <tr>
+    <td> <%= comment.id %> </td>
+    <td> <%= comment.issue_id %> </td>
+    <td> <%= comment.user_id %> </td>
+    <td> <%= Issue.find_by(id: comment.issue_id).title %> </td>
+    <td> <%= comment.body %> </td>
+    <td> <%= comment.image %> </td>
+    <td> <%= comment.created_at %> </td>
+</tr>
+<% end %>

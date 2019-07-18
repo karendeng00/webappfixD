@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: webappfixd-test-build
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: webappfixd-test:latest
+  source:
+    contextDir: /
+    git:
+      ref: master
+      uri: 'git@gitlab.oit.duke.edu:fixduke/webappfixd.git'
+    sourceSecret:
+      name: gitlabdeploykey
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+      noCache: true
+    type: Docker

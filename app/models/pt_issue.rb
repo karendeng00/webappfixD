@@ -1,0 +1,4 @@
+class PtIssue < Issue
+
+    
+end

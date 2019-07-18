@@ -1,0 +1,30 @@
+<h1> Comments </h1>
+<table style="width:100%">
+    <tr>
+        <th>Comment ID</th>
+        <th>Issue ID</th>
+        <th>User ID</th>
+        <th>Issue Title</th>
+        <th>Body</th>
+        <th>Image</th>
+        <th>Time Created</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+<% @comments.each do |comment|%>
+    <tr>
+        <td> <%= comment.id %> </td>
+        <td> <%= comment.issue_id %> </td>
+        <td> <%= comment.user_id %> </td>
+        <td> <%= Issue.find_by(id: comment.issue_id).title %> </td>
+        <td> <%= comment.body %> </td>
+        <td> <%= comment.image %> </td>
+        <td> <%= comment.created_at %> </td>
+        <td> <%= link_to "Edit", edit_comment_path(comment) %> </td>
+        <td> <%= link_to "Delete", comment_path(comment), method: :delete,
+                                data: {confirm: "Are you sure you want to delete this comment?"} %> </td>
+    </tr>
+<% end %>
+
+</table>
