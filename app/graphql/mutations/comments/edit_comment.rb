@@ -6,8 +6,7 @@ module Mutations
             argument :body, String, required: false
             argument :image, String, required: false
             argument :user_id, Integer, required: false
-            argument :issue_id, Integer, required: false
-            argument :image, String, required: true
+            argument :issue_id, Integer, required: false 
 
             type Types::CommentType
 
