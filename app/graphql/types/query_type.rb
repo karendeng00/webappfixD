@@ -99,5 +99,37 @@ module Types
       Comment.where(user_id: user_id)
     end
 
+    #####################################
+    ## Kong Queries
+    #####################################
+    field :get_net_id, String, null:false do
+      description "Get NetId from Kong"
+    end
+
+    def get_net_id() 
+      $netID
+    end
+
+    field :get_duid, String, null:false do
+      description "Get UniqueId from Kong"
+    end
+
+    def get_duid()
+      $uniqueID
+    end
+
+    #####################################
+    ## IDMWS Queries
+    #####################################
+    field :get_user_info,[String], null:false do
+      argument :duid, String, required:true
+      description "Get User info from IDMS through Kong \n 
+      Order: NetId, DUID, Name"
+    end
+
+    def get_user_info(duid:)
+      [$netID, $uniqueID, Idmws.getName(duid)]
+    end
+
   end
 end

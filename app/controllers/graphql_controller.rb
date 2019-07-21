@@ -1,5 +1,17 @@
 class GraphqlController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  
   def execute
+
+    if !request.headers['HTTP_X_AUTHENTICATED_INTROSPECTION'].blank?
+      val = eval( request.headers['HTTP_X_AUTHENTICATED_INTROSPECTION'] )
+      puts "VAL: #{val}"
+      $uniqueID = val[:dukeUniqueID]
+      $netID = val[:dukeNetID]
+      puts $netID
+      puts $uniqueID
+    end
+
     variables = ensure_hash(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
@@ -14,8 +26,8 @@ class GraphqlController < ApplicationController
     handle_error_in_development e
   end
 
-  private
 
+  private
   # Handle form data, JSON body, or a blank value
   def ensure_hash(ambiguous_param)
     case ambiguous_param
