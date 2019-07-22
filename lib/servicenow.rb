@@ -25,7 +25,7 @@ class Servicenow {
     end
 
     # all fields below are required
-    def setUpTicket(title:, description:, impact:, urgency:, netid:)
+    def createTicket(title:, description:, impact:, urgency:, netid:)
         request_body = {
             :active => 'true',
             :category => 'Other',
@@ -45,16 +45,17 @@ class Servicenow {
             :short_description => title,
             :caller_id => netid 
         }
-
-        response = sn_rest_client.post do |req|
-            req.url SN_INCIDENT_URI
-            req.options.timeout = 60
-            req.options.open_timeout = 15
-            req.headers['Content-Type'] = 'application/json'
-            req.headers['Accept'] = 'application/json'
-            req.body = request_body.to_json
+        begin
+            response = sn_rest_client.post do |req|
+                req.url SN_INCIDENT_URI
+                req.options.timeout = 60
+                req.options.open_timeout = 15
+                req.headers['Content-Type'] = 'application/json'
+                req.headers['Accept'] = 'application/json'
+                req.body = request_body.to_json
+            end
+            j = JSON.parse(response.body, symbolize_names: true)
+            puts j
         end
-        j = JSON.parse(response.body, symbolize_names: true)
-        return j
     end
 }
