@@ -48,6 +48,11 @@ module Mutations
                 impact: impact, your_floor: your_floor, your_building: your_building, your_room: your_room, request_type: request_type,
                 issue_building: issue_building, issue_floor: issue_floor, issue_room: issue_room, service_type: service_type, 
                 fund_code: fund_code, topic: topic, name: name)
+            
+                # ## Service Now Ticket:
+                # if type == "SnIssue"
+                #     Servicenow.createTicket(title: title, description: description, impact: impact, urgency: urgency, netid: user_id)
+                # end
             end
         end
     end
