@@ -8,6 +8,8 @@ module Types
         field :alt_phone, String, null: true
         field :email, String, null: true
         field :issues, [Types::IssueType], null: true
+        field :likedIssues, [Integer], null: true
+        field :favoritedIssues, [Integer], null: true
     end
   end
   

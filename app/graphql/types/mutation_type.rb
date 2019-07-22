@@ -2,6 +2,8 @@ module Types
   class MutationType < Types::BaseObject
     ## Users
     field :create_user, mutation: Mutations::Users::CreateUser
+    field :add_like_to_user, mutation: Mutations::Users::AddLikeToUser
+    field :add_fav_to_user, mutation: Mutations::Users::AddFavToUser
 
     ## Issues
     field :create_issue, mutation: Mutations::Issues::CreateIssue
