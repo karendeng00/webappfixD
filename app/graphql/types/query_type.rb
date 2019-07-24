@@ -122,8 +122,7 @@ module Types
     ## IDMWS Queries
     #####################################
     field :get_user_info,UserType, null:false do
-      description "Get User info from IDMS through Kong \n 
-      Order: NetId, DUID, Name"
+      description "Get User info from IDMS token"
     end
 
     def get_user_info()
