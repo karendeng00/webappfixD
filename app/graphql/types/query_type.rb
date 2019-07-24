@@ -121,14 +121,16 @@ module Types
     #####################################
     ## IDMWS Queries
     #####################################
-    field :get_user_info,[String], null:false do
-      argument :duid, String, required:true
+    field :get_user_info,UserType, null:false do
       description "Get User info from IDMS through Kong \n 
       Order: NetId, DUID, Name"
     end
 
-    def get_user_info(duid:)
-      [$netID, $uniqueID, Idmws.getName(duid)]
+    def get_user_info()
+      if User.where(netid: $netID).first == nil
+        User.create!(name: Idmws.getName(get_duid()), netid: $netID, phone: "", picture: "")
+      end
+        User.where(netid: $netID).first
     end
 
   end
