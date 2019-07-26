@@ -8,9 +8,9 @@ module Mutations
             argument :issue_id, Integer, required: true
 
             type Types::CommentType
-
+            
             def resolve(body:, user_id:, issue_id:, image:)
-                Comment.create!(body: body, user_id: user_id, issue_id: issue_id, image: image)
+                Comment.create!(body: body, user_id: user_id, issue_id: issue_id, image:image) 
             end
         end
     end
