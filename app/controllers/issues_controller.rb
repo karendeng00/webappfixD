@@ -51,7 +51,6 @@ class IssuesController < ApplicationController
         @issue = Issue.new(issue_params)
         @issue.favorites = 0
         @issue.likes = 0
-        
 
         if @issue.save #&& User.exists?(id: @issue.user_id)
             if @issue.type == "SnIssue"
@@ -89,7 +88,9 @@ class IssuesController < ApplicationController
         @issue = Issue.find(params[:id])
         @issue.update(issue_params)
         @issue.save
-
+        if @issue.type == "SnIssue"
+            Servicenow.createTicket
+        end
         redirect_to issues_path
     end
 
