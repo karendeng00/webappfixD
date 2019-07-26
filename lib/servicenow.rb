@@ -1,31 +1,37 @@
 #!/usr/bin/env ruby
 
-require_relative 'auth_creds.rb'
+#require_relative 'auth_creds.rb'
 require 'json'
 require 'faraday'
 
-SN_URL='https://duketest.service-now.com'
-SN_INCIDENT_URI='/api/now/v1/table/incident?sysparm_display_value=true'
-CALLER='sf86' # NetID of user submitting ticket
+class Servicenow
+  attr_accessor :request, :endpoint, :response
+  SN_URL='https://duketest.service-now.com'
+  SN_INCIDENT_URI='/api/now/v1/table/incident?sysparm_display_value=true'
+  CALLER='aam79' # NetID of user submitting ticket
 
-# Test URL if you want to see if ServiceNow is available (get 1 incident number)
-# '/api/now/v1/table/incident?sysparm_limit=1&sysparm_fields=number'
+  # Test URL if you want to see if ServiceNow is available (get 1 incident number)
+  # '/api/now/v1/table/incident?sysparm_limit=1&sysparm_fields=number'
 
-def sn_rest_client
-conn = Faraday.new(:url => SN_URL) do |faraday|
-    faraday.request :url_encoded
-    faraday.response :logger
-    faraday.response :raise_error
-    faraday.adapter Faraday.default_adapter
-end
-conn.basic_auth(APP_CREDS['sn_user'],APP_CREDS['sn_pass'])
-conn.headers['Accept'] = 'application/json; version=2.0'
-conn.headers['Accept-Encoding'] = ''
-return conn
-end
+  def initialize()
+  end
 
-# all fields below are required
-request_body = {
+  def sn_rest_client
+    conn = Faraday.new(:url => SN_URL) do |faraday|
+      faraday.request :url_encoded
+      faraday.response :logger
+      faraday.response :raise_error
+      faraday.adapter Faraday.default_adapter
+    end
+    conn.basic_auth('api.codeplus.oit','haAQYd+eNFsroU6nnUvq')
+    conn.headers['Accept'] = 'application/json; version=2.0'
+    conn.headers['Accept-Encoding'] = ''
+    return conn
+  end
+
+  # all fields below are required
+  def request_body
+    request_body = {
     :active => 'true',
     :category => 'Other',
     :subcategory => 'Other',
@@ -43,18 +49,24 @@ request_body = {
     :assignment_group => 'Service Desk-OIT',
     :short_description => 'This is the title of the the ticket!',
     :caller_id => CALLER
-}
+  }
+  end
 
-begin
-response = sn_rest_client.post do |req|
-    req.url SN_INCIDENT_URI
-    req.options.timeout = 60
-    req.options.open_timeout = 15
-    req.headers['Content-Type'] = 'application/json'
-    req.headers['Accept'] = 'application/json'
-    req.body = request_body.to_json
-end
-j = JSON.parse(response.body, symbolize_names: true)
-puts j
-end
+  def fetch
+    response = sn_rest_client.post do |req|
+      Rails::logger.debug "########## req" + req.inspect
+      req.url SN_INCIDENT_URI
+      req.options[:timeout] = 60
+      req.options[:open_timeout] = 15
+      req.headers['Content-Type'] = 'application/json'
+      req.headers['Accept'] = 'application/json'
+      req.body = self.request_body.to_json
+    end
+    j = JSON.parse(response.body, symbolize_names: true)
+    puts j
+  end
 
+  def self.createTicket
+    resp = Servicenow.new().fetch
+  end
+end
