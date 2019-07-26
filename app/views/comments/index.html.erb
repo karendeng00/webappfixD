@@ -19,7 +19,11 @@
         <td> <%= comment.user_id %> </td>
         <td> <%= Issue.find_by(id: comment.issue_id).title %> </td>
         <td> <%= comment.body %> </td>
-        <td> <%= comment.image %> </td>
+        <% if comment.avatar.attached? %>
+           <td> <%= link_to "Image", url_for(comment.avatar)%> </td>
+        <% else %>
+            <td> <%= "hi" %> </td>
+        <%end %>  
         <td> <%= comment.created_at %> </td>
         <td> <%= link_to "Edit", edit_comment_path(comment) %> </td>
         <td> <%= link_to "Delete", comment_path(comment), method: :delete,
