@@ -21,6 +21,7 @@ EXPOSE 3000
 
 RUN chmod -R 777 /app/db/
 RUN chmod -R 777 /app/tmp/
+RUN chmod -R 777 /app/storage/
 RUN chmod -R 777 log
 
 USER rubyuser
