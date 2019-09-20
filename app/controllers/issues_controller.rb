@@ -104,7 +104,9 @@ class IssuesController < ApplicationController
         @issue = Issue.find(params[:id])
         @issue.update(issue_params)
         @issue.save
-
+        if @issue.type == "SnIssue"
+            Servicenow.createTicket
+        end
         redirect_to issues_path
     end
 

@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 
   #post 'createNewOIT' => 'issues#newOIT', :as => :newOIT
 
-  post 'setpath' => 'issues#setPath', :as => :setPath
+  # post 'setpath' => 'issues#setPath', :as => :setPath
 
 
 

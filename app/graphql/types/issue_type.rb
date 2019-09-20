@@ -33,6 +33,8 @@ module Types
     field :fund_code, String, null:true
     field :topic, String, null:true
     field :name, String, null:true
- 
+    field :created_at, String, null:true
+    field :comments, [Types::CommentType], null:true
+    field :user, Types::UserType, null: false
   end
 end

@@ -3,7 +3,11 @@
 <p> Comment body: <%= @comment.body %> </p>
 <p> Issue ID: <%= @comment.issue_id %> </p>
 <p> User ID: <%= @comment.user_id %> </p>
-
+<% if @comment.avatar.attached? %>
+    <p> Comment Image: <%= link_to "Image", url_for(@comment.avatar)%> </p>
+<% else %> 
+    <p> Comment Image: hi %>
+<%end %>
 <p> <%= link_to "Edit", edit_comment_path(@comment) %> &nbsp; &nbsp;
 <%= link_to "Delete", comment_path(@comment), method: :delete,
                                                     data: {confirm: "Are you sure you want to delete this Comment?"} %>

@@ -11,8 +11,10 @@ class CommentsController < ApplicationController
 
     def update 
         @comment = Comment.find(params[:id])
+        @comment.image = url_for(@comment.avatar)
         @comment.update(comment_params)
         if User.exists?(id: @comment.user_id) && Issue.exists?(id: @comment.issue_id)
+            
             redirect_to comment_path
         else
             render json: {status: "error", code: 3000, message: "User does not exist! \n Create issues with existing Users only."}
@@ -31,7 +33,11 @@ class CommentsController < ApplicationController
 
     def create 
         @comment = Comment.new(comment_params)
-        logger.debug "ERROR" + comment_params.inspect
+        @comment.image = url_for(@comment.avatar)
+        #@comment.avatar.attach(params[:avatar])
+        logger.debug "This is avatar" + params[:comment][:avatar].inspect
+        logger.debug "TERRIBLE ERROR" + @comment.inspect
+        logger.debug "HORRIBLE ERROR" + comment_params.inspect
         if User.exists?(id: @comment.user_id) && Issue.exists?(id: @comment.issue_id)
             @comment.save
             redirect_to comments_path
@@ -42,10 +48,11 @@ class CommentsController < ApplicationController
 
     def edit
         @comment = Comment.find(params[:id])
+
     end
 
     private def comment_params
-        params.require(:comment).permit(:body, :issue_id, :user_id)
+        params.require(:comment).permit(:body, :issue_id, :user_id, :avatar)
     end 
 
     

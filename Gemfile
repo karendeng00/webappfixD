@@ -12,6 +12,8 @@ gem 'pg'
 # gem to load env values
 #gem 'dotenv'
 gem 'dotenv-rails', groups: [:development, :test]
+# faraday for service now
+gem 'faraday'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

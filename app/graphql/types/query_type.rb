@@ -35,6 +35,12 @@ module Types
       description "Return User of Specific ID"
     end
 
+    # Return User by NetId
+    field :user_by_net_id, UserType, null: false do 
+      argument :netid, String, required:true 
+      description "Return User From a Specific NetId"
+    end
+
     # Return Comment by ID
     field :comment_by_id, CommentType, null: false do
       argument :id, Integer, required: true
@@ -77,6 +83,10 @@ module Types
       User.find(id)
     end
 
+    def user_by_net_id(netid:)
+      User.where(netid: netid).first
+    end
+
     def comment_by_id(id:)
       Comment.find(id)
     end
@@ -87,6 +97,39 @@ module Types
 
     def comments_by_user(user_id:)
       Comment.where(user_id: user_id)
+    end
+
+    #####################################
+    ## Kong Queries
+    #####################################
+    field :get_net_id, String, null:false do
+      description "Get NetId from Kong"
+    end
+
+    def get_net_id() 
+      $netID
+    end
+
+    field :get_duid, String, null:false do
+      description "Get UniqueId from Kong"
+    end
+
+    def get_duid()
+      $uniqueID
+    end
+
+    #####################################
+    ## IDMWS Queries
+    #####################################
+    field :get_user_info,UserType, null:false do
+      description "Get User info from IDMS token"
+    end
+
+    def get_user_info()
+      if User.where(netid: $netID).first == nil
+        User.create!(name: Idmws.getName(get_duid()), netid: $netID, phone: "", picture: "")
+      end
+        User.where(netid: $netID).first
     end
 
   end
