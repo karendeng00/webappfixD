@@ -2,7 +2,7 @@
   "name": "WebApp",
   "private": true,
   "dependencies": {
-    "apollo": "^2.16.0",
+    "apollo": "^2.34.0",
     "apollo-graphql": "^0.3.3"
   }
 }
